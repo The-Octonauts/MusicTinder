@@ -1,7 +1,7 @@
 Contact numbers:
 Carlos - 505-967-5418
 Aaron - 505-307-5209
-Alan
+Alan - 505-620-2288
 
 Contact each other on Slack first then text.  Phone calls if we are expecting a call from the team.
 
@@ -14,4 +14,9 @@ Weekends: Open for the most part except for a few events in the next 8 weeks.
 
 aaron mon-fri 8 am - 9pm
 weekends: open for most part except one outing on sat or sun .
+
+Alan: Mon-Thurs= 7:30pm-11pm open for anything
+Friday-not available all day
+Saturday 5pm-12am open
+Sunday- all day open for text
 
