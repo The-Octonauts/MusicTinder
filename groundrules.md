@@ -20,3 +20,5 @@ Friday-not available all day
 Saturday 5pm-12am open
 Sunday- all day open for text
 
+
+Expectations:  Doing work to the best of our abilities before deadline.
