@@ -12,5 +12,6 @@ Monday-Friday 5pm-8pm not available.
 Monday-Friday 8pm-10pm open to talk or chat
 Weekends: Open for the most part except for a few events in the next 8 weeks. 
 
-
+aaron mon-fri 8 am - 9pm
+weekends: open for most part except one outing on sat or sun .
 
