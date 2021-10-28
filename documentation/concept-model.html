@@ -5,6 +5,63 @@
     <title>Title</title>
 </head>
 <body>
+    <h1> Conceptual Model</h1>
+    <h2> Entities and Attributes</h2>
+    <h3>Profile </h3>
+        <ul>
+            <li>profileID (PK)</li>
+            <li>profileEmail</li>
+            <li>profileHash</li>
+            <li>activationToken</li>
+            <li>userPhotoID</li>
+            <li>countryID</li>
+        </ul>
+    <h3> Songs </h3>
+        <ul>
+            <li>artistID</li>
+            <li>songID</li>
+            <li>topSongID</li>
+            <li>topSongProfileID</li>
+            <li>genreID</li>
+            <li>URI</li>
+            <li>countryID</li>
+        </ul>
+    <h3>Recommendations</h3>
+    <ul>
+        <li>recommendationID</li>
+    </ul>
+    <h3>Match</h3>
+        <ul>
+            <li>matchID</li>
+            <li>rejectID</li>
+            <li>recommendationID</li>
+        </ul>
+    <h3>Message</h3>
+        <ul>
+            <li>messageContentID</li>
+            <li>messageID</li>
+        </ul>
+
+
+
+
+
+
+
+ <H1>Example Interaction Flow</H1>
+    <ul>
+        <li>User creates profile in 'Music Tinder".</li>
+        <li>User connects their email and spotify to the app</li>
+        <li>App reviews the most played songs from a user and adds it to a "container" within the users profile.</li>
+        <li>App then tries to find other users with similar song choices</li>
+        <li>App shows recomendations of other users who liked similar artists/podcasts</li>
+        <li>User is able to swipe left (rejection) and right (match) when they see a user who they would like to meet. </li>
+        <li>App sends notification to user about the match (this may be an additional paid feature)</li>
+        <li>Other user swipes left and right on you.  If they match then a notification is sent
+        to both matched users to prompt them to connect.</li>
+        <li>A messaging function will be added to allow each matched user to communicate.</li>
+        <li></li>
+    </ul>
 
 </body>
 </html>
