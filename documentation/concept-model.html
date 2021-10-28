@@ -7,30 +7,38 @@
 <body>
     <h1> Conceptual Model</h1>
     <h2> Entities and Attributes</h2>
-    <h3>  Profile </h3>
+    <h3>Profile </h3>
         <ul>
             <li>profileID (PK)</li>
             <li>profileEmail</li>
             <li>profileHash</li>
-            <li>profileActivationToken</li>
+            <li>activationToken</li>
             <li>userPhotoID</li>
+            <li>countryID</li>
         </ul>
     <h3> Songs </h3>
         <ul>
-            <li>genreID</li>
             <li>artistID</li>
             <li>songID</li>
             <li>topSongID</li>
             <li>topSongProfileID</li>
+            <li>genreID</li>
+            <li>URI</li>
+            <li>countryID</li>
         </ul>
-    <h3>Match/Recommendation</h3>
+    <h3>Recommendations</h3>
+    <ul>
+        <li>recommendationID</li>
+    </ul>
+    <h3>Match</h3>
         <ul>
             <li>matchID</li>
             <li>rejectID</li>
-            <li>recommendID</li>
+            <li>recommendationID</li>
         </ul>
     <h3>Message</h3>
         <ul>
+            <li>messageContentID</li>
             <li>messageID</li>
         </ul>
 
