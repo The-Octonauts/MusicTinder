@@ -10,40 +10,42 @@
     <h3>Profile </h3>
         <ul>
             <li>profileID (PK)</li>
+            <li>activationToken</li>
             <li>profileEmail</li>
             <li>profileHash</li>
-            <li>activationToken</li>
             <li>userPhotoID</li>
-            <li>countryID</li>
+            <li>userPhotoId</li>
         </ul>
-    <h3> Songs </h3>
+    <h3> Podcast </h3>
         <ul>
-            <li>artistID</li>
-            <li>songID</li>
-            <li>topSongID</li>
-            <li>topSongProfileID</li>
-            <li>genreID</li>
-            <li>URI</li>
-            <li>countryID</li>
+            <li>podcastId</li>
+            <li>podcastName</li>
+            <li>podcastGenre</li>
+            <li>podcastDescription</li>
         </ul>
-    <h3>Recommendations</h3>
+    <h3>Saved</h3>
     <ul>
-        <li>recommendationID</li>
+        <li>savedId</li>
+        <li>savedPodcastId</li>
+        <li>savedProfileId</li>
     </ul>
-    <h3>Match</h3>
+    <h3>Swipe</h3>
         <ul>
-            <li>matchID</li>
-            <li>rejectID</li>
-            <li>recommendationID</li>
+            <li>swiperProfileId</li>
+            <li>swipeReceiverProfileId</li>
+            <li>swipeRight</li>
         </ul>
     <h3>Message</h3>
         <ul>
-            <li>messageContentID</li>
-            <li>messageID</li>
+            <li>messageId</li>
+            <li>messageeProfileId</li>
+            <li>messageContent</li>
+            <li>messagerProfileId</li>
         </ul>
-
-
-
+<section>
+    <h1>ERD model for PodPals</h1>
+    <img src="ERD%20with%20colored%20entities%20(UML%20notation).jpeg" alt="ERD for PodPal" width="400px" height="400px">
+</section>
 
 
 
