@@ -1,0 +1,15 @@
+.centered {
+    max-width: 25%;
+}
+
+
+.backgroundColor {
+    background-color: azure;
+}
+
+.background {
+    background-image: url("../assets/Podcast-audience.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-content: center;
+}
