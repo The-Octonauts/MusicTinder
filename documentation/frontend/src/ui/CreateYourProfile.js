@@ -1,5 +1,6 @@
 import React from "react";
-import {Col, Form, Image, Row} from "react-bootstrap";
+import {Form, Image} from "react-bootstrap";
+import './CreateYourProfile.css'
 
 export const CreateYourProfile = () => {
     const [selected, setSelected] = React.useState("");
@@ -61,14 +62,33 @@ export const CreateYourProfile = () => {
         options = type.map((el) => <option key={el}>{el}</option>);
     }
 
+    // state = {
+    //     selectedFile: null
+    // }
+    //
+    // fileSelectedHandler = event => {
+    //     this.setState({
+    //         selectedFile: event.target.files[0]
+    //     })
+    // }
+    //
+    // fileUploadHandler = () => {
+    //
+    // }
+
+
     return(
         <>
-            <h1>Create Your Profile</h1>
+            <h1 className={"text-center my-md-5"}>Create Your Profile</h1>
 
             <section>
                 <div className={"d-flex flex-row justify-content-center"}>
                     <div>
                         <Image src="assests/profilePic.png" alt="profilePic" width="250px" height="350px" thumbnail/>
+                        <div>
+                            <input type="file"/>
+                            <button>Upload</button>
+                        </div>
                     </div>
                     <div className="ms-5">
                         <Form>
@@ -82,9 +102,9 @@ export const CreateYourProfile = () => {
             </section>
 
             <section>
-                <h2>Please add your favorite podcasts</h2>
+                <h2 className={"text-center my-md-5"}>Please add your favorite podcasts</h2>
                 <div>
-                    <Form>
+                    <Form class="formSize">
                         <div>
                             <Form.Group>
                                 <Form.Label>Genre</Form.Label>
@@ -96,14 +116,12 @@ export const CreateYourProfile = () => {
                                     <option>Sports</option>
                                     <option>Health/Fitness</option>
                                 </Form.Select>
+                                <Form.Select>
+                                    {
+                                        options
+                                    }
+                                </Form.Select>
                             </Form.Group>
-                        </div>
-                        <div>
-                            <Form.Select>
-                                {
-                                    options
-                                }
-                            </Form.Select>
                         </div>
                     </Form>
                 </div>
