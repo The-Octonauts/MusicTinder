@@ -103,8 +103,8 @@ export const CreateYourProfile = () => {
 
             <section>
                 <h2 className={"text-center my-md-5"}>Please add your favorite podcasts</h2>
-                <div>
-                    <Form class="formSize">
+                <div class="formSize">
+                    <Form>
                         <div>
                             <Form.Group>
                                 <Form.Label>Genre</Form.Label>
