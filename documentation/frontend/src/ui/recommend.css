@@ -1,3 +1,42 @@
 .cardHeader {
     background-color: deeppink !important;
+    background-image: linear-gradient(deeppink, magenta);
 }
+
+.text-absolute {
+    position: absolute;
+    bottom: 50px;
+    left: 5px;
+    width: 200px;
+    height: 100px;
+}
+
+/*.img-relative {
+    width: 100px;
+    height: 200px;
+    background-size: cover;
+}
+
+.img-relative::before {
+    content: " ";
+    width: 500px;
+    height: 500px;
+    background-image: linear-gradient(to bottom, transparent, black);
+    position: relative;
+}*/
+
+.bg-image {
+    width: 200px;
+    height: 250px;
+    background-size: contain;
+}
+
+.bg-image::before {
+    content: " ";
+    width: 200px;
+    height: 250px;
+    background-image: linear-gradient(to bottom, transparent, black);
+    opacity: 50%;
+    position: absolute;
+}
+
