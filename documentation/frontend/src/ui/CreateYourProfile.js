@@ -121,6 +121,7 @@ export const CreateYourProfile = () => {
                                         options
                                     }
                                 </Form.Select>
+                                <button type="submit" value="Submit" className="btn btn-primary">Submit</button>
                             </Form.Group>
                         </div>
                     </Form>
