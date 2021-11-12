@@ -22,27 +22,59 @@ export const ControlledCarousel = () => {
                          style={{
                          }}/>
                    {/* <Card.Img variant="top" src={girl1} alt="recommendation image" className="img-relative"/>*/}
-                    <Card.Body>
                     <Card.ImgOverlay>
+                    <Card.Body>
                         <Row>
                         <Card.Title className="text-absolute">Kyliee, 21</Card.Title>
                         </Row>
-                        <Row>
                         <Card.Text className="text-absolute">
                             Her favorite podcasts are Joe Rogan Experience and Consider This.
                         </Card.Text>
-                        </Row>
-                    </Card.ImgOverlay>
+
             </Card.Body>
-                    <Card.Body>
+                    </Card.ImgOverlay>
+
                         <ListGroup className="list-group-horizontal">
-                            <ListGroupItem>❌</ListGroupItem>
-                            <ListGroupItem>💖</ListGroupItem>
-                            <ListGroupItem>✅</ListGroupItem>
+                            <ListGroupItem className="col list-group-item-dark">❌</ListGroupItem>
+                            <ListGroupItem className="col">💖</ListGroupItem>
+                            <ListGroupItem className="col">✅</ListGroupItem>
                         </ListGroup>
-                        <Card.Link href="#">Card Link</Card.Link>
-                        <Card.Link href="#">Another Link</Card.Link>
-                    </Card.Body>
+                    {/*<Card.Body>
+                        <Card.Link href="#">❌</Card.Link>
+                        <Card.Link href="#" className="justify-content-end">✅</Card.Link>
+                    </Card.Body>*/}
+
+                </Card>
+            </Carousel.Item>
+            <Carousel.Item>
+
+                <Card style={{ width: '20rem'}} className="text-white bg-dark">
+                    <Card.Img variant="top" src={man} className="bg-image"
+                              style={{
+                              }}/>
+                    {/* <Card.Img variant="top" src={girl1} alt="recommendation image" className="img-relative"/>*/}
+                    <Card.ImgOverlay>
+                        <Card.Body>
+                            <Row>
+                                <Card.Title className="text-absolute">Jabroni, 36</Card.Title>
+                            </Row>
+                            <Card.Text className="text-absolute">
+                                Listens to Myrtle the Turtle podcast.
+                            </Card.Text>
+
+                        </Card.Body>
+                    </Card.ImgOverlay>
+
+                    <ListGroup className="list-group-horizontal">
+                        <ListGroupItem className="col list-group-item-dark">❌</ListGroupItem>
+                        <ListGroupItem className="col">💖</ListGroupItem>
+                        <ListGroupItem className="col">✅</ListGroupItem>
+                    </ListGroup>
+                    {/*<Card.Body>
+                        <Card.Link href="#">❌</Card.Link>
+                        <Card.Link href="#" className="justify-content-end">✅</Card.Link>
+                    </Card.Body>*/}
+
                 </Card>
             </Carousel.Item>
 

@@ -1,12 +1,14 @@
 .cardHeader {
-    background-color: deeppink !important;
-    background-image: linear-gradient(deeppink, magenta);
+    background-color: black !important;
+    background-image: linear-gradient(to right, yellowgreen, greenyellow);
 }
 
 .text-absolute {
+    padding-left: 5px;
+    padding-bottom: 5px;
     position: absolute;
-    bottom: 50px;
-    left: 5px;
+    bottom: 10px;
+    left: 10px;
     width: 200px;
     height: 100px;
 }
@@ -28,15 +30,15 @@
 .bg-image {
     width: 200px;
     height: 250px;
-    background-size: contain;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, transparent, black) !important;
 }
 
 .bg-image::before {
     content: " ";
     width: 200px;
     height: 250px;
-    background-image: linear-gradient(to bottom, transparent, black);
-    opacity: 50%;
+    background-image: linear-gradient(to bottom, transparent, black) !important;
     position: absolute;
 }
 
