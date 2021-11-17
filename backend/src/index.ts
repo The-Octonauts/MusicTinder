@@ -9,5 +9,4 @@ async function main () {
         console.log(e)
     }
 }
-
-main()
+main().catch(error=>console.error(error))
