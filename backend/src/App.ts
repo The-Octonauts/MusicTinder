@@ -1,7 +1,7 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
 // Routes
-import { indexRoute } from './apis/index.route'
+import { indexRoute } from './apis/index.routes'
 
 // The following class creates the app and instantiates the server
 export class App {
