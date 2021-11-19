@@ -9,4 +9,8 @@ async function main () {
         console.log(e)
     }
 }
+<<<<<<< HEAD
 main().catch(error=>console.error(error))
+=======
+main().catch(error=>console.error(error))
+>>>>>>> develop
