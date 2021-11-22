@@ -1,6 +1,6 @@
 import {Schema} from "express-validator";
 
-export const signUpValidator:Schema = {
+export const signupValidator:Schema = {
     profileId: {
         escape: true,
         trim: true,
@@ -10,7 +10,7 @@ export const signUpValidator:Schema = {
         }
     },
     profilePhotoUrl: {
-        optional: false,
+        optional: true,
         isURL: {
             errorMessage: 'You must add a profile photo'
         }

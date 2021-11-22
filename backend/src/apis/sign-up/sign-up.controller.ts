@@ -13,10 +13,10 @@ const mailgun = require("mailgun-js")
 
 export async function signupProfileController (request: Request, response: Response): Promise<Response|undefined> {
     try {
-        const {profileId, profileEmail, profilePhotoId} = request.body;
+        const {profileId, profileEmail, profilePhotoId, profilePassword} = request.body;
         const profileHash = await setHash(profilePassword);
         const profileActivationToken = setActivationToken();
-        const profilePhotoUrl = "/"
+        const profilePhotoUrl = "😀"
         const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`
         console.log(profileActivationToken);
 
@@ -67,6 +67,7 @@ export async function signupProfileController (request: Request, response: Respo
     } catch (error) {
         const status: Status = {
             status: 500,
+            // @ts-ignore
             message: error.message,
             data: null
         };
