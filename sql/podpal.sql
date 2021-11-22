@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS message;
 DROP TABLE IF EXISTS swipe;
 DROP TABLE IF EXISTS saved;
 DROP TABLE IF EXISTS podcast;
-DROP TABLE IF EXISTS `profile`;
+DROP TABLE IF EXISTS profile;
 
 CREATE TABLE profile (
 
@@ -16,6 +16,7 @@ CREATE TABLE profile (
                          profileEmail VARCHAR(32) NOT NULL,
                          profileHash  CHAR(97) NOT NULL,
                          profilePhotoId VARCHAR(128) NOT NULL,
+                         profilePhotoUrl varchar(128) NOT NULL,
                          UNIQUE(profileEmail),
                          UNIQUE(profileId),
                          INDEX(profileId),
@@ -33,6 +34,7 @@ CREATE TABLE saved (
                        savedId BINARY(16) NOT NULL,
                        savedPodcastId BINARY(16) NOT NULL,
                        savedProfileId BINARY(16) NOT NULL,
+                       INDEX(savedProfileId),
                        INDEX(savedId),
                        FOREIGN KEY(savedProfileId) REFERENCES profile(profileId),
                        PRIMARY KEY (savedId)
@@ -40,9 +42,8 @@ CREATE TABLE saved (
 CREATE TABLE swipe (
                         swiperProfileId BINARY(16) NOT NULL,
                         swipeeReceiveProfileId BINARY(16) NOT NULL,
-                        swipeRight char(16) NOT NULL,
-                        swipeLeft char(16) NOT NULL,
-                        INDEX(swipeRight),
+                        swipeRight boolean NOT NULL,
+                        INDEX(swipeeReceiveProfileId),
                         INDEX(swiperProfileId),
                         FOREIGN KEY(swiperProfileId) REFERENCES profile(profileId),
                         FOREIGN KEY(swipeeReceiveProfileId) REFERENCES profile(profileId),
@@ -54,6 +55,9 @@ CREATE TABLE message (
                     messageeProfileId Binary(16) NOT NULL,
                     messageContent varchar(255) NOT NULL,
                     messageProfileId Binary(16) NOT NULL,
+                    INDEX(messageProfileId),
+                    INDEX(messageeProfileId),
+                    INDEX(messageID),
                     FOREIGN KEY(messageeProfileId) references profile(profileId),
                     FOREIGN KEY(messageProfileId) references profile(profileId),
                     Primary Key(messageId)
