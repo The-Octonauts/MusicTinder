@@ -22,7 +22,7 @@ export const signupValidator:Schema = {
         //normalizeEmail: true,
         trim: true
     },
-    profilePassword: {
+    profileHash: {
         isLength: {
             errorMessage: 'Password must at least be eight characters',
             options: {min: 8}
@@ -30,7 +30,7 @@ export const signupValidator:Schema = {
         trim: true,
         escape: true
     },
-    profilePasswordConfirm: {
+    profileHashConfirm: {
         isLength: {
             errorMessage: 'Confirm password must be at least eight characters',
             options: {min: 8}
