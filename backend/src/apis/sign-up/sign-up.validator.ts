@@ -10,7 +10,7 @@ export const signUpValidator:Schema = {
         }
     },
     profilePhotoUrl: {
-        optional: false,
+        optional: true,
         isURL: {
             errorMessage: 'You must add a profile photo'
         }
