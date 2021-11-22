@@ -1,4 +1,2 @@
-DROP TABLE IF EXISTS `like`;
-DROP TABLE IF EXISTS image;
-DROP TABLE IF EXISTS tweet;
-DROP TABLE IF EXISTS `profile`;
+/*INSERT INTO profile(profileId, profileActivationToken, profileEmail, profileHash, profilePhotoId)
+    VALUE('profilePhotoUrl');*/
