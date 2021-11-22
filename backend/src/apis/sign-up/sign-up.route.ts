@@ -1,12 +1,9 @@
 import {Router} from "express";
 import {signupProfileController} from './sign-up.controller';
 import {param} from "express-validator";
-
-
-
-
-
-
+import { signupValidator } from './signup.validator';
+import { asyncValidatorController } from '../../utils/controllers/asyncValidator.controller';
+import {activationController}from "./activation.controller";
 const {checkSchema} = require('express-validator');
 
 const router: Router = Router();

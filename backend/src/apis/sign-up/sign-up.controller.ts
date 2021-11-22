@@ -1,11 +1,9 @@
 import {Request, Response} from "express";
 import MailComposer from "nodemailer/lib/mail-composer";
 import {Status} from "../../utils/interfaces/Status";
-
-
-
-
-
+import {Profile} from "../../utils/interfaces/Profile";
+import {insertProfile} from "../../utils/profile/insertProfile";
+import {setActivationToken, setHash} from '../../utils/auth.utils';
 
 
 const mailgun = require("mailgun-js")
