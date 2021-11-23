@@ -1,5 +1,7 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
+import PodcastRoute from '.apis/podcast/podcast.route';
+
 // Routes
 import { indexRoute } from './apis/index.routes'
 
@@ -30,7 +32,8 @@ export class App {
     // private method for setting up routes in their basic sense (ie. any route that performs an action on profiles starts with /profiles)
     private routes () :void {
         // TODO add "/apis"
-        this.app.use('/apis', indexRoute)
+        this.app.use('/apis', indexRoute);
+        this.app.use('/apis/podcast', PodcastRoute);
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
