@@ -3,7 +3,7 @@ import "express-session";
 import passport from 'passport';
 import passportLocal, {Strategy} from 'passport-local';
 
-import uuid from "uuid";
+import {v4 as uuid} from 'uuid';
 import {generateJwt, validatePassword} from "../../utils/auth.utils";
 import {Profile} from "../../utils/interfaces/Profile";
 import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";

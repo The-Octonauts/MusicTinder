@@ -28,6 +28,7 @@ export async function putProfileController(request: Request, response: Response)
             ? performUpdate({profileId, profilePhotoUrl, profileEmail})
             : updateFailed("you are not allowed to perform this action")
     }   catch (error) {
+        // @ts-ignore
         return response.json( {status: 400, data: null, message: error.message})
     }
 }
@@ -42,6 +43,7 @@ export async function getProfileByProfileId(request: Request, response: Response
         return response.json(status)
 
     }   catch (error) {
+        // @ts-ignore
         return(response.json({status:400, data:null, message: error.message}))
 
     }
