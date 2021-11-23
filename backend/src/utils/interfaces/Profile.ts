@@ -6,3 +6,11 @@ export interface Profile {
     profileHash: string,
     profileActivationToken: string|null,
 }
+export interface PartialProfile {
+    profileId: string|null,
+    profileActivationToken : string|null,
+    profilePhotoId: string,
+    profilePhotoUrl: string,
+    profileEmail: string,
+    profileHash: string,
+}

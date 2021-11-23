@@ -1,8 +1,9 @@
 import {Request, Response} from "express";
-import {Profile} from "../../utils/interfaces/Profile";
+import {PartialProfile, Profile} from "../../utils/interfaces/Profile";
 import {Status} from "../../utils/interfaces/Status";
 import {selectWholeProfileByProfileId} from "../../utils/profile/selectWholeProfileByProfileId";
 import {updateProfile} from "../../utils/profile/updateProfile";
+import {selectPartialProfileByProfileId} from "../../utils/profile/selectPartialProfileByProfileId";
 
 
 export async function putProfileController(request: Request, response: Response) : Promise<Response>{

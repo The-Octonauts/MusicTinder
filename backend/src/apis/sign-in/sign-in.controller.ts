@@ -20,9 +20,10 @@ export async function signInController(request: Request, response: Response, nex
             {session: false},
             async (err: any, passportUser: Profile) => {
                 console.log(passportUser)
-                const {profileId, profilePhotoId, profilePhotoUrl, profileEmail, } = passportUser;
+                const {profileId, profilePhotoId, profilePhotoUrl, profileEmail, profileActivationToken, profileHash } = passportUser;
+                // @ts-ignore
                 const signature: string = uuid();
-                const authorization: string = generateJwt({profileId, profilePhotoId, profilePhotoUrl, profileEmail
+                const authorization: string = generateJwt({profileId, profilePhotoId, profilePhotoUrl, profileEmail, profileActivationToken, profileHash
                 }, signature);
 
                 const signInFailed = (message: string) => response.json({
@@ -57,6 +58,7 @@ export async function signInController(request: Request, response: Response, nex
                 return isPasswordValid ? signInSuccessful() : signInFailed("Invalid email or password");
             })(request, response, nextFunction)
     } catch (error) {
+        // @ts-ignore
         return response.json({status: 500, data: null, message: error.message})
     }
 }
@@ -64,7 +66,7 @@ export async function signInController(request: Request, response: Response, nex
 
 const LocalStrategy = passportLocal.Strategy;
 
-export const  passportStrategy: Strategy = new LocalStrategy(
+export const passportStrategy: Strategy = new LocalStrategy(
     {
         usernameField: 'profileEmail',
         passwordField: "profilePassword"
