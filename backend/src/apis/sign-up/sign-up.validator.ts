@@ -1,16 +1,16 @@
 import {Schema} from "express-validator";
 
-export const signUpValidator:Schema = {
-    profileId: {
-        escape: true,
-        trim: true,
-        isLength: {
-            errorMessage: 'Profile Id must be between 7 and 32 characters',
-            options: {min: 1, max: 32}
-        }
-    },
+export const signupValidator:Schema = {
+    // profileId: {
+    //     escape: true,
+    //     trim: true,
+    //     isLength: {
+    //         errorMessage: 'Profile Id must be between 7 and 32 characters',
+    //         options: {min: 1, max: 32}
+    //     }
+    // },
     profilePhotoUrl: {
-        optional: false,
+        optional: true,
         isURL: {
             errorMessage: 'You must add a profile photo'
         }

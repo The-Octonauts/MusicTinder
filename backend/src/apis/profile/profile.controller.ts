@@ -1,15 +1,15 @@
 import {Request, Response} from "express";
-import {Profile} from "../../utils/interfaces/Profile";
+import {PartialProfile, Profile} from "../../utils/interfaces/Profile";
 import {Status} from "../../utils/interfaces/Status";
 import {selectWholeProfileByProfileId} from "../../utils/profile/selectWholeProfileByProfileId";
 import {updateProfile} from "../../utils/profile/updateProfile";
+import {selectPartialProfileByProfileId} from "../../utils/profile/selectPartialProfileByProfileId";
 
 
 export async function putProfileController(request: Request, response: Response) : Promise<Response>{
     try {
         const {profileId} = request.params
         const {profileEmail, profilePhotoUrl, } = request.body
-        const profile
         const profile = <Profile>request.session.profile
         const profileIdFromSession = <string>profile.profileId
 
@@ -28,6 +28,7 @@ export async function putProfileController(request: Request, response: Response)
             ? performUpdate({profileId, profilePhotoUrl, profileEmail})
             : updateFailed("you are not allowed to perform this action")
     }   catch (error) {
+        // @ts-ignore
         return response.json( {status: 400, data: null, message: error.message})
     }
 }
@@ -42,6 +43,7 @@ export async function getProfileByProfileId(request: Request, response: Response
         return response.json(status)
 
     }   catch (error) {
+        // @ts-ignore
         return(response.json({status:400, data:null, message: error.message}))
 
     }

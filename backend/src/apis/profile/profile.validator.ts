@@ -13,7 +13,7 @@ export const profileValidator: Schema = {
             }
         },
         isURL: {
-            errorMessage: "proile photo is ugly, please add something better"
+            errorMessage: "profile photo is ugly, please add something better"
         },
     },
     profileEmail: {

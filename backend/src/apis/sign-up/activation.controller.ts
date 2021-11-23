@@ -1,6 +1,6 @@
 import {NextFunction, Request, Response} from "express";
 import {selectProfileByProfileActivationToken} from "../../utils/profile/selectProfileByProfileActivationToken";
-import {Profile} from "../../utils/interfaces/profile";
+import {Profile} from "../../utils/interfaces/Profile";
 import {updateProfile} from "../../utils/profile/updateProfile";
 import {Status} from '../../utils/interfaces/Status';
 
@@ -25,6 +25,7 @@ export async function activationController (request: Request, response: Response
         }
         return profile ? await activationSucceeded(profile) : activationFailed()
     }catch (error) {
+        // @ts-ignore
         return response.json({status: 500, data: null, message: error.message})
     }
 }
