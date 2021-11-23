@@ -1,14 +1,14 @@
 import {Schema} from "express-validator";
 
 export const signupValidator:Schema = {
-    profileId: {
-        escape: true,
-        trim: true,
-        isLength: {
-            errorMessage: 'Profile Id must be between 7 and 32 characters',
-            options: {min: 1, max: 32}
-        }
-    },
+    // profileId: {
+    //     escape: true,
+    //     trim: true,
+    //     isLength: {
+    //         errorMessage: 'Profile Id must be between 7 and 32 characters',
+    //         options: {min: 1, max: 32}
+    //     }
+    // },
     profilePhotoUrl: {
         optional: true,
         isURL: {
@@ -22,7 +22,7 @@ export const signupValidator:Schema = {
         //normalizeEmail: true,
         trim: true
     },
-    profileHash: {
+    profilePassword: {
         isLength: {
             errorMessage: 'Password must at least be eight characters',
             options: {min: 8}
@@ -30,7 +30,7 @@ export const signupValidator:Schema = {
         trim: true,
         escape: true
     },
-    profileHashConfirm: {
+    profilePasswordConfirm: {
         isLength: {
             errorMessage: 'Confirm password must be at least eight characters',
             options: {min: 8}

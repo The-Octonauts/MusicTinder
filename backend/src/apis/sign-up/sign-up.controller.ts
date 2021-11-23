@@ -13,7 +13,7 @@ const mailgun = require("mailgun-js")
 
 export async function signupProfileController (request: Request, response: Response): Promise<Response|undefined> {
     try {
-        const {profileId, profileEmail, profilePhotoId, profilePassword} = request.body;
+        const {profileEmail, profilePassword} = request.body;
         const profileHash = await setHash(profilePassword);
         const profileActivationToken = setActivationToken();
         const profilePhotoUrl = "😀"
@@ -39,7 +39,7 @@ export async function signupProfileController (request: Request, response: Respo
             profileActivationToken,
             profileEmail,
             profileHash,
-            profilePhotoId,
+            profilePhotoId: null,
             profilePhotoUrl
         };
         await insertProfile (profile)

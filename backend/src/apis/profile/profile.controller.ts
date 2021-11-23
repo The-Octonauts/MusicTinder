@@ -9,7 +9,6 @@ export async function putProfileController(request: Request, response: Response)
     try {
         const {profileId} = request.params
         const {profileEmail, profilePhotoUrl, } = request.body
-        const profile
         const profile = <Profile>request.session.profile
         const profileIdFromSession = <string>profile.profileId
 
@@ -17,7 +16,7 @@ export async function putProfileController(request: Request, response: Response)
             const previousProfile: Profile = await selectWholeProfileByProfileId(<string>partialProfile.profileId) as Profile
             const newProfile: Profile = {...previousProfile, ...partialProfile}
             await updateProfile(newProfile)
-            return reponse.json({status: 200, data: null, message: "Profile successfully updated"})
+            return response.json({status: 200, data: null, message: "Profile successfully updated"})
         }
 
         const updateFailed = (message: string) : Response => {
