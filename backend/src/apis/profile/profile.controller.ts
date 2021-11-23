@@ -5,6 +5,7 @@ import {selectWholeProfileByProfileId} from "../../utils/profile/selectWholeProf
 import {updateProfile} from "../../utils/profile/updateProfile";
 
 
+
 export async function putProfileController(request: Request, response: Response) : Promise<Response>{
     try {
         const {profileId} = request.params
@@ -17,7 +18,7 @@ export async function putProfileController(request: Request, response: Response)
             const previousProfile: Profile = await selectWholeProfileByProfileId(<string>partialProfile.profileId) as Profile
             const newProfile: Profile = {...previousProfile, ...partialProfile}
             await updateProfile(newProfile)
-            return reponse.json({status: 200, data: null, message: "Profile successfully updated"})
+            return response.json({status: 200, data: null, message: "Profile successfully updated"})
         }
 
         const updateFailed = (message: string) : Response => {
