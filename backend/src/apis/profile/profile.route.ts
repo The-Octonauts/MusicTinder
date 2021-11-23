@@ -2,7 +2,8 @@ import {getProfileByProfileId, putProfileController} from "./profile.controller"
 import {Router} from "express";
 import {check, checkSchema} from "express-validator";
 import {profileValidator} from "./profile.validator";
-
+import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
+import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
 
 
 export const ProfileRoute: Router = Router();
