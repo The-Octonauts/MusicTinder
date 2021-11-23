@@ -9,6 +9,7 @@ const MemoryStore = require('memorystore')(session);
 import csrf from "csurf";
 import passport = require('passport');
 import {passportStrategy} from "./apis/sign-in/sign-in.controller";
+import {signoutRoute} from "./apis/sign-out/sign-out.route";
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -53,6 +54,7 @@ export class App {
         this.app.use('/apis', indexRoute);
         this.app.use('/apis/sign-up', signupRoute);
         this.app.use('/apis/sign-in', signinRouter);
+        this.app.use('/apis/sign-out', signoutRoute);
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
