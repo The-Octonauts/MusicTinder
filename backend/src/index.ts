@@ -9,7 +9,6 @@ declare module 'express-session' {
         jwt: string|undefined
     }
 }
->>>>>>> develop
 
 // instantiate new app and pass it a port as an argument to start with (4200)
 async function main () {

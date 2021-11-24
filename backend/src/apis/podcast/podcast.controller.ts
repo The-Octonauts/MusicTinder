@@ -1,13 +1,9 @@
 import {Request, Response, NextFunction} from 'express';
 
 // Interfaces (represent the DB model and types of the columns associated with a specific DB table)
-import {Tweet} from '../../utils/interfaces/Tweet';
 import {Status} from '../../utils/interfaces/Status';
 import {Profile} from "../../utils/interfaces/Profile";
-import {insertShow} from "../../utils/tweet/insertTweet"
-import {selectAllTweets} from "../../utils/tweet/selectAllTweets";
-import {selectTweetsByTweetProfileId} from "../../utils/tweet/selectTweetsByTweetProfileId";
-import {selectTweetByTweetId} from '../../utils/tweet/selectTweetByTweetId';
+import {insertShow} from "../../utils/podcast/insertPodcast"
 
 export async function getAllShowsController(request: Request, response: Response): Promise<Response<Status>> {
 
@@ -85,6 +81,7 @@ export async function postPodcast(request: Request, response: Response) : Promis
 
 
 
+/*
 // export async function deleteTweet(request: Request, response: Response) {
 // 	try {
 // 		const {tweetId} = request.body;
@@ -94,4 +91,4 @@ export async function postPodcast(request: Request, response: Response) : Promis
 // 	} catch (error) {
 // 		console.log(error)
 // 	}
-// }
+// }*/
