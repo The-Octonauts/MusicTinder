@@ -26,7 +26,7 @@ CREATE TABLE podcast (
                        podcastId BINARY(16) NOT NULL,
                        podcastName varchar(64) NOT NULL,
                        podcastGenre VARCHAR(32) NOT NULL,
-                       podcastDescription varchar(128) NOT NULL,
+                       podcastDescription varchar(1500) NOT NULL,
                        INDEX(podcastId),
                        PRIMARY KEY(podcastId)
 );
