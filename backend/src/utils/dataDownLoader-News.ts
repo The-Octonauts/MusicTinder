@@ -11,7 +11,7 @@ import {Podcast} from '../utils/interfaces/Podcast';*/
     podcastDescription: string|null;
 }*/
 
-function dataDownLoader() : Promise<any> {
+function dataDownLoaderNews() : Promise<any> {
 	return main()
 
 	async function main() {
@@ -25,8 +25,8 @@ function dataDownLoader() : Promise<any> {
 
 	async function downloadShow() {
 		try {
-			const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=0xDEeqWuoMNBUFGNrhIz6L%2C4rOoJ6Egrf8K2IrywzwOMk%2C5vjIQasHl1KJkppWhHWMQQ%2C1cpyLfDHP1cNnyOb478qrt%2C1PgDUTgeyu3FOzK1FcBoqa%2C6kAsbP8pxwaU2kPibKTuHE%2C0Yzd0g8NYmn27k2HFNplv7%2C2X40qLyoj1wQ2qE5FVpA7x%2C0fg35zGJ4E7JKdhrTivXmt%2C7bnjJ7Va1nM07Um4Od55dW",
-				{headers: {Authorization: "Bearer " + "BQClUXE5Qe8Anrl_mQ5zDy0UoDViPsrET_6KkoSlw_qAgeseLSH4paJsyau0GtalHPrlmWtkcdfdgj9Kn1x0aIB-bu7UqBK4CER7IQSHWf6_euU4DoY4baApWkJa2t40eqpZwIHvLSuIc_pNkMIUBF5D_lVodthJHufey3gdriLIxkTp6cbQ3mXp4mBzVXUJg7lAofZVd2ITDwbTwsZm5kyTearxAFxjp9vuSQ"}})
+			const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=1WErgoXiZwgctkHLzqU6nf%2C3IM0lmZxpFAY7CwMuv9H4g%2C2mTUnDkuKUkhiueKcVWoP0%2C4Kbsy61zJSzPxNZZ3PKbXl%2C6BRSvIBNQnB68GuoXJRCnQ%2C0KxdEdeY2Wb3zr28dMlQva%2C3fQkNGzE1mBF1VrxVTY0oo%2C2HQ0xANSYpBvxvsEMuYxP9%2C3YMFdNqoNtVcCBKSUvjr8n%2C4sftHO603JaFqpuQBEZReL",
+				{headers: {Authorization: "Bearer " + "BQDbJsHa2Q7xJkm_2-def4MGG63IGyTIpUWLdvqKtsN9xdqM3M8RrxuBALjAEEDRRaHn0kOfeXHLV7os6R8EIfkDG7BiSKJKzlZBfW410q-QF9BL4p8R2jYK_lmlrViG-5XXTtevcBH5lB0p1SsyYnsKgqduU5Th4Rog7xepAFEProVt5hlR_7RzPN196P9XfqMgOow487dwoNSpQPQ"}})
 			/*console.log(data.shows[5].name)*/
 
 			// @ts-ignore
@@ -35,7 +35,7 @@ function dataDownLoader() : Promise<any> {
 					podcastId: uuid(),
 					podcastName: show.name,
 					podcastDescription: show.description,
-					podcastGenre: "comedy"
+					podcastGenre: "News"
 				}
 				console.log(insertShow(createShows))
 				return createShows
@@ -78,4 +78,4 @@ function dataDownLoader() : Promise<any> {
 	}
 }
 
-dataDownLoader().catch(error => console.error(error))
+dataDownLoaderNews().catch(error => console.error(error))
