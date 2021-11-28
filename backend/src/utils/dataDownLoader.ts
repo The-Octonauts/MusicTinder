@@ -26,7 +26,7 @@ function dataDownLoader() : Promise<any> {
 	async function downloadShow() {
 		try {
 			const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=0xDEeqWuoMNBUFGNrhIz6L%2C4rOoJ6Egrf8K2IrywzwOMk%2C5vjIQasHl1KJkppWhHWMQQ%2C1cpyLfDHP1cNnyOb478qrt%2C1PgDUTgeyu3FOzK1FcBoqa%2C6kAsbP8pxwaU2kPibKTuHE%2C0Yzd0g8NYmn27k2HFNplv7%2C2X40qLyoj1wQ2qE5FVpA7x%2C0fg35zGJ4E7JKdhrTivXmt%2C7bnjJ7Va1nM07Um4Od55dW",
-				{headers: {Authorization: "Bearer " + "BQClUXE5Qe8Anrl_mQ5zDy0UoDViPsrET_6KkoSlw_qAgeseLSH4paJsyau0GtalHPrlmWtkcdfdgj9Kn1x0aIB-bu7UqBK4CER7IQSHWf6_euU4DoY4baApWkJa2t40eqpZwIHvLSuIc_pNkMIUBF5D_lVodthJHufey3gdriLIxkTp6cbQ3mXp4mBzVXUJg7lAofZVd2ITDwbTwsZm5kyTearxAFxjp9vuSQ"}})
+				{headers: {Authorization: "Bearer " + "BQBJtrgnBPEi3VdT4e5Pqa_FE4r3aO1OwH2vkXH9r6z0B8G8ENCtVzHcYE8LbwqogS5ghd37FEt_EpZOiUHlkxREQL7u-hNGsJqt-VmACLwD4aATK-t1F8SrsZtFCG2Ko7bzZfVTKGYSwHqKQirdcnF6XIpiWNvDpszeXI3DRvKxxdRVindxvNt0sclRNqnZUAVMyJn_C3MB7ARrywJ1GFjyAV-z4DoE9-M1Cw"}})
 			/*console.log(data.shows[5].name)*/
 
 			// @ts-ignore
