@@ -27,17 +27,16 @@ CREATE TABLE podcast (
                        podcastName varchar(64) NOT NULL,
                        podcastGenre VARCHAR(32) NOT NULL,
                        podcastDescription varchar(1500) NOT NULL,
+                       podcastImage varchar(128) NOT NULL,
                        INDEX(podcastId),
                        PRIMARY KEY(podcastId)
 );
 CREATE TABLE saved (
-                       savedId BINARY(16) NOT NULL,
                        savedPodcastId BINARY(16) NOT NULL,
                        savedProfileId BINARY(16) NOT NULL,
                        INDEX(savedProfileId),
-                       INDEX(savedId),
-                       FOREIGN KEY(savedProfileId) REFERENCES profile(profileId),
-                       PRIMARY KEY (savedId)
+                       INDEX(savedPodcastId),
+                       PRIMARY KEY(savedProfileId, savedPodcastId)
 );
 CREATE TABLE swipe (
                         swiperProfileId BINARY(16) NOT NULL,
