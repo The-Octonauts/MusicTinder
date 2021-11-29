@@ -6,10 +6,10 @@ import {ResultSetHeader, RowDataPacket} from 'mysql2';
 export async function insertSavedPodcast(show: Show) : Promise<string> {
     try {
         const mySqlConnection = await connect()
-        const mySqlQuery = "INSERT INTO saved(savedPodcastId, savedProfileId ) VALUES(UUID_TO_BIN(UUID()), :UUID_TO_BIN(UUID()))";
+        const mySqlQuery = "INSERT INTO saved(savedPodcastId, savedProfileId ) VALUES(UUID_TO_BIN(UUID(:savedPodcastId)), UUID_TO_BIN(UUID(:savedProfileId)))";
 
         const [result]= await mySqlConnection.execute(mySqlQuery, show) as [ResultSetHeader, RowDataPacket]
-        return "Show created successfully"
+        return "Show successfully saved to your profile"
     } catch (error) {
         throw error
     }

@@ -11,6 +11,7 @@ import passport = require('passport');
 import {passportStrategy} from "./apis/sign-in/sign-in.controller";
 import {signoutRoute} from "./apis/sign-out/sign-out.route";
 import podcastRouter from "./apis/podcast/podcast.route";
+import savedRouter from "./apis/saved/saved.route";
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -57,6 +58,7 @@ export class App {
         this.app.use('/apis/sign-in', signinRouter);
         this.app.use('/apis/sign-out', signoutRoute);
         this.app.use('/apis/podcast',podcastRouter );
+        this.app.use('/apis/saved' , savedRouter);
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
