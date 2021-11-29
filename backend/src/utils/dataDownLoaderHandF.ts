@@ -26,7 +26,7 @@ function dataDownLoader() : Promise<any> {
     async function downloadShow() {
         try {
             const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=63AWQmsSnFNFHUqnRAOFtD%2C79CkJF3UJTHFV8Dse3Oy0P%2C706hylM6zaDW8LrrYxcggQ%2C5ZIxtIWb16Vr2hFStL4nZK%2C3WdMpEOWYl8Zx8uzzH8rAn%2C5EqqB52m2bsr4k1Ii7sStc%2C3rDR8CfpIEMpITG2UC3w5W%2C3Zq2XDpVrtadTR1xOfzhzo%2C0PAPT0bIKian2QrstzTsiw%2C2bAmrw0xKnOhOx4hqSL7vF",
-                {headers: {Authorization: "Bearer " + "BQC1N_3-1JEOhIgW2X52ly5JDKtnMl7mOFfqYTadyyFXAX1rrPBZPqNK7l9_A8j-40Vb3JqIkoKFE_M4CZf18Ix0FZHeZ4RieFyrWNyW9cyHlQHks9NCycWMrouyuhdKvWPKV5SUGxxjFpkxzLlgCqrLZfQn4rZ0En_2Uhfn0ekGIAbjs3lzAvqbnFArrCjlRX9EQqj9L2i3xIvfsAC2hKgN_xl-O4_NoCOdaw"}})
+                {headers: {Authorization: "Bearer " + "BQA2vQ31r2_QeESM3f8oXTvX9xEu3YPQs9Vr8bDwxuxJZUw_ffta8j70a3bElxC3n4QwzJuY2TpLzf8tRm-rLbhbj5wqOG5YlBraXOp4lJ3P-rWt7-0JGVS76ImhCsyzaQI4kzHghpRG3qduG01v4mHOHMmIcQ"}})
             /*console.log(data.shows[5].name)*/
 
             // @ts-ignore
@@ -35,6 +35,7 @@ function dataDownLoader() : Promise<any> {
                     podcastId: uuid(),
                     podcastName: show.name,
                     podcastDescription: show.description,
+                    podcastImage: show.images[1],
                     podcastGenre: "Health and Fitness"
                 }
                 console.log(insertShow(createShows))
