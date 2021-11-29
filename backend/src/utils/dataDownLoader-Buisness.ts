@@ -26,7 +26,7 @@ function dataDownLoader() : Promise<any> {
     async function downloadShow() {
         try {
             const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=3oEPsPKDhPVoNNL7pH5db6%2C6ll0MwobDt1JW9gYaOONEo%2C7irxBvxNqGYnUdFo1c2gMc%2C5qSUyCrk9KR69lEiXbjwXM%2C6KHwEnVRZmS9tmxkyfqUMD%2C6E709HRH7XaiZrMfgtNCun%2C0b5qzMiw22wHBfe1x9LfaQ%2C4FYpq3lSeQMAhqNI81O0Cn%2C5exfRPDNCBHmntEkJrlLmX%2C6SZVsPIxPfVs6aavqM1peY",
-                {headers: {Authorization: "Bearer " + "BQAGjDliQ31_u6O9hU_ti3bsmYTd61sMIZKj431-TpdHc_ddz6iCeqBmVxLesB8HFrKz1U1-e8BHZOgssOe9crxWf9psLjV2NWzjewGj60alLMNnr3um28REtqtNIyfjNIA9Lp4NB4MY9rN9z1Hrl6ssQbsPKg"}})
+                {headers: {Authorization: "Bearer " + "BQBf8DPfMESFuqCYMXkWy69aJflMJVLXfUK3b__FjQpQmz7RD_WmBlpi8f9m3crmgVH6ae4DolTFnIV6wbqbZNyO2-eNJHHni-oNi2zWeBU-vQK7E41Jl65Ru9iNL0Hp27wNojtAs755ntkDeN83TTFvyzVsQ0YyuZbUrumCwDssevv_IjbPFu7FKyxzQl0Yc3yjzm_EZPdwFtFoKkZ9pHc2i546DmfCQFDYOQ"}})
             /*console.log(data.shows[5].name)*/
 
             // @ts-ignore
@@ -35,6 +35,7 @@ function dataDownLoader() : Promise<any> {
                     podcastId: uuid(),
                     podcastName: show.name,
                     podcastDescription: show.description,
+                    podcastImage: show.images[1],
                     podcastGenre: "business"
                 }
                 console.log(insertShow(createShows))

@@ -3,4 +3,5 @@ export interface Show {
     podcastName: string;
     podcastGenre: string;
     podcastDescription: string|null;
+    podcastImage: string;
 }
