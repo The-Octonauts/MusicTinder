@@ -35,7 +35,7 @@ function dataDownLoaderNews() : Promise<any> {
 					podcastId: uuid(),
 					podcastName: show.name,
 					podcastDescription: show.description,
-					podcastGenre: "News"
+					podcastGenre: "news"
 				}
 				console.log(insertShow(createShows))
 				return createShows
