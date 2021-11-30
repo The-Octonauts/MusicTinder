@@ -11,7 +11,7 @@ import passport = require('passport');
 import {passportStrategy} from "./apis/sign-in/sign-in.controller";
 import {signoutRoute} from "./apis/sign-out/sign-out.route";
 import podcastRouter from "./apis/podcast/podcast.route";
-import savedRouter from "./apis/saved/saved.route";
+import {savedRouter} from "./apis/saved/saved.route";
 
 // The following class creates the app and instantiates the server
 export class App {

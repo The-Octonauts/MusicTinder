@@ -1,5 +1,5 @@
 import {connect} from "../database.utils";
-import {Saved} from "../interfaces/saved";
+import {Saved} from "../interfaces/Saved";
 
 export async function deleteSaved(saved: Saved) {
     try {

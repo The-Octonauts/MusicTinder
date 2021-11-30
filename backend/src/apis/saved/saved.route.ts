@@ -1,11 +1,16 @@
 import {Router} from 'express';
-import {getUsersSavedPodcasts} from "./saved.controller";
 import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
+import {getAllPodcastsController, getPodcastsBySavedProfileId, postUsersSavedPodcast} from "./saved.controller";
+import {asyncValidatorController} from "../../utils/controllers/asyncValidator.controller";
+import {check, checkSchema} from "express-validator";
+import {savedValidator} from "./saved.validator";
+import {insertSavedPodcast} from "../../utils/saved/insertSavedPodcast";
 
 
-const savedRouter = Router();
+export const savedRouter = Router();
 
 savedRouter.route('/')
-    .post(isLoggedIn, getUsersSavedPodcasts);
+    .post(isLoggedIn, asyncValidatorController(checkSchema(savedValidator)),postUsersSavedPodcast);
 
-export default savedRouter
+savedRouter.route('/savedProfileId/:savedProfileId')
+    .get(asyncValidatorController([check("savedProfileId", "Please provide a valid saved profileID").isUUID()]),getPodcastsBySavedProfileId)
