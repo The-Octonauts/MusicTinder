@@ -2,16 +2,6 @@ import {Request, Response, NextFunction} from 'express';
 import {Status} from "../../utils/interfaces/Status";
 import {selectAllPodcast} from "../../utils/podcast/selectAllPodcast";
 
-
-
-
-
-
-
-
-
-
-
 export async function getAllPodcastController(request: Request, response: Response): Promise<Response<Status>> {
 
     try {
