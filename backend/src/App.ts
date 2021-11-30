@@ -12,7 +12,7 @@ import {passportStrategy} from "./apis/profile/sign-in/sign-in.controller";
 import {signoutRoute} from "./apis/sign-out/sign-out.route";
 import podcastRouter from "./apis/podcast/podcast.route";
 import {insertSwipe} from "./utils/swipe/insertSwipe";
-import swipeRouter from "./apis/swipe/swipe.route";
+import {swipeRouter} from "./apis/swipe/swipe.route";
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -59,7 +59,7 @@ export class App {
         this.app.use('/apis/sign-in', signinRouter);
         this.app.use('/apis/sign-out', signoutRoute);
         this.app.use('/apis/podcast',podcastRouter );
-        this.app.use('apis/swipe' , swipeRouter);
+        this.app.use('/apis/swipe' , swipeRouter);
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port

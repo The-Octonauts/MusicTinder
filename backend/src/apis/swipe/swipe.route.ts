@@ -1,12 +1,12 @@
 import {Router} from 'express';
 import {insertSwipe} from "../../utils/swipe/insertSwipe";
+import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 
 
 
 
-const swipeRouter = Router()
+export const swipeRouter = Router()
 
 swipeRouter.route('/')
-    .post( insertSwipe)
+    .post(isLoggedIn, insertSwipe)
 
-export default swipeRouter;
