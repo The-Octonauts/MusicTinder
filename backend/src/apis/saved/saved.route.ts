@@ -1,12 +1,11 @@
 import {Router} from 'express';
-import {getAllSavedPodcasts} from "./saved.controller";
+import {getUsersSavedPodcasts} from "./saved.controller";
+import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 
 
-
-
-const savedRouter = Router()
+const savedRouter = Router();
 
 savedRouter.route('/')
-    .get( getAllSavedPodcasts)
+    .post(isLoggedIn, getUsersSavedPodcasts);
 
 export default savedRouter
