@@ -53,12 +53,17 @@ console.log(podcasts)
                             <Form.Group>
                                 <Form.Label>Genre</Form.Label>
                                 <Form.Select>
-                                    {podcasts.map(podcast => <option>{podcast.podcastGenre}</option>)}
+                                    {podcasts.map(podcast => <option>{podcast.podcastGenre.podcastName}</option>)}
                                     <option>Comedy</option>
                                     <option>News</option>
                                     <option>True Crime</option>
                                     <option>Sports</option>
                                     <option>Health/Fitness</option>
+                                </Form.Select>
+                                <Form.Select>
+                                    {
+
+                                    }
                                 </Form.Select>
                                 <button type="submit" value="Submit" className="btn btn-primary">Submit</button>
                             </Form.Group>
