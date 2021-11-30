@@ -13,7 +13,7 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
 
     const signature = (request: Request): string => request.session?.signature ?? 'no signature'
 
-    const isSessionActive = (isProfileActive: Profile | undefined): boolean => isProfileActive ? true : false;
+    const isSessionActive = (isProfileActive: Profile | undefined): boolean => !!isProfileActive;
 
     const getJwtTokenFromHeader = (headers: IncomingHttpHeaders): string | undefined => {
 
@@ -23,6 +23,7 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
 
     const unverifiedJwtToken: string | undefined = getJwtTokenFromHeader(request.headers);
 
+    // @ts-ignore
     const isJwtValid: boolean|void = unverifiedJwtToken
       ? verify(
             unverifiedJwtToken,
@@ -48,6 +49,7 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
     //
     // }
 
+    // @ts-ignore
     return isJwtValid(unverifiedJwtToken) && isSessionActive(sessionProfile(request)) ? next() : response.json(status);
 
 }

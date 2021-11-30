@@ -3,3 +3,4 @@ export interface Swipe {
     swipeeReceiveProfileId: string;
     swipeRight: boolean;
 }
+
