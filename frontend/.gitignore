@@ -3,7 +3,7 @@
 */node_modules
 .idea
 */.Ds_Store
-
+*/setupProxy.js
 /project.env
 # dependencies
 /node_modules
