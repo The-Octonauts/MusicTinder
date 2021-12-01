@@ -28,7 +28,7 @@ console.log(podcasts)
             <section>
                 <div className={"d-flex flex-row justify-content-center"}>
                     <div>
-                        <Image src="assests/profilePic.png" alt="profilePic" width="250px" height="350px" thumbnail/>
+                        <Image src="assets/profilePic.png" alt="profilePic" width="250px" height="350px" thumbnail/>
                         <div>
                             <input type="file"/>
                             <button>Upload</button>

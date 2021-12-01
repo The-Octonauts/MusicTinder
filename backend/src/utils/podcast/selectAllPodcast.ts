@@ -6,11 +6,7 @@ import {Show} from "../interfaces/Podcast";
 export async function selectAllPodcast(): Promise<Array<Show>> {
     try {
         const mysqlConnection = await connect();
-<<<<<<< HEAD
-        const mysqlQuery: string = "SELECT BIN_TO_UUID(podcastId) as podcastId, podcastName, podcastGenre, podcastDescription, podcastImage FROM podcast"
-=======
         const mysqlQuery: string = "SELECT BIN_TO_UUID(podcastId) as podcastId, podcastName, podcastGenre, podcastDescription, podcastImage  FROM podcast"
->>>>>>> bc650d20f03eb8768cc407cde5a0e1c8e5feb7a1
         const result = await mysqlConnection.execute(mysqlQuery) as RowDataPacket[]
 
 
