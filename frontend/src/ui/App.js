@@ -9,15 +9,16 @@ import {login} from './login';
 import {Navigation} from './Navigation';
 import {Footer} from "./Footer";
 import {CreateYourProfile} from "./CreateYourProfile";
+import {Provider} from "react-redux";
 
 
 
 
 
-export const App = () => (
+export const App = (store) => (
     <>
 
-
+        <Provider store={store} >
         <BrowserRouter>
             <Navigation/>
             <Switch>
@@ -30,5 +31,6 @@ export const App = () => (
             </Switch>
             <Footer/>
         </BrowserRouter>
+        </Provider>
     </>
 )
