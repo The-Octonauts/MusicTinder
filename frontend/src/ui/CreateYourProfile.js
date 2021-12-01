@@ -1,85 +1,29 @@
 import React from "react";
 import {Form, Image} from "react-bootstrap";
 import './CreateYourProfile.css'
+import {fetchAllPodcasts} from "../store/podcast";
+import {useDispatch, useSelector} from "react-redux";
 
 export const CreateYourProfile = () => {
-    const [selected, setSelected] = React.useState("");
-    const changeSelectOptionHandler = (event) => {
-        setSelected(event.target.value);
-    };
-    const comedy = [
-        "The Joe Rogan Experience",
-        "Banter with Sapnap and Karl Jacobs",
-        "Morbid: A True Crime Podcast",
-        "Call Her Daddy",
-        "Armchair Expert Umbrella with Dax Shepard"
-    ];
-    const news = [
-        "The Ben Shapiro Show",
-        "The Daily",
-        "NPR Up First",
-        "Breaking Points with Krystal and Saagar",
-        "Morning Wire",
-    ];
-    const trueCrime = [
-        "Bruh Issa Murder",
-        "Wine & Crime",
-        "Bear Brook",
-        "Morbid: A True Crime Podcast",
-        "A Murder in My Family",
-    ];
-    const sport = [
-        "Pardon My Take",
-        "The Bill Simmons Podcast",
-        "The Rumor",
-        "The Pat McAfee Show 2.0",
-        "The Dan le Batard Show with Stugotz",
-    ];
-    const health = [
-        "Mind Pump",
-        "Sika Strength",
-        "Ben Greenfield Fitness",
-        "The Drive with Peter Attia",
-        "The Doctors Farmacy",
-    ];
 
-    let type = null;
-    let options = null;
 
-    if (selected === "Comedy") {
-        type = comedy;
-    } else if (selected === "News"){
-        type = news;
-    } else if (selected === "True Crime") {
-        type = trueCrime;
-    }else if (selected === "Sports") {
-        type = sport;
-    } else if (selected === "Health/Fitness") {
-        type = health
+    const dispatch = useDispatch()
+    const initialEffects = () => {
+        dispatch(fetchAllPodcasts())
     }
+    React.useEffect(initialEffects, [dispatch])
 
-    if (type) {
-        options = type.map((el) => <option key={el}>{el}</option>);
-    }
+    // Render our misquotes constant - before we have our data, render the skeleton.
+    // After we have our data, render the full object with our data.
+    const podcasts = useSelector((state) => state.podcast ? state.podcast : [])
 
-    // state = {
-    //     selectedFile: null
-    // }
-    //
-    // fileSelectedHandler = event => {
-    //     this.setState({
-    //         selectedFile: event.target.files[0]
-    //     })
-    // }
-    //
-    // fileUploadHandler = () => {
-    //
-    // }
+console.log(podcasts)
 
 
     return(
         <>
             <h1 className={"text-center my-md-5"}>Create Your Profile</h1>
+            {/*{podcasts.map(podcast => <h2>{podcast.podcastName}</h2>)}*/}
 
             <section>
                 <div className={"d-flex flex-row justify-content-center"}>
@@ -108,8 +52,8 @@ export const CreateYourProfile = () => {
                         <div>
                             <Form.Group>
                                 <Form.Label>Genre</Form.Label>
-                                <Form.Select onChange={changeSelectOptionHandler}>
-                                    <option>Choose</option>
+                                <Form.Select>
+                                    {podcasts.map(podcast => <option>{podcast.podcastGenre.podcastName}</option>)}
                                     <option>Comedy</option>
                                     <option>News</option>
                                     <option>True Crime</option>
@@ -118,7 +62,7 @@ export const CreateYourProfile = () => {
                                 </Form.Select>
                                 <Form.Select>
                                     {
-                                        options
+
                                     }
                                 </Form.Select>
                                 <button type="submit" value="Submit" className="btn btn-primary">Submit</button>
