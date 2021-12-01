@@ -9,10 +9,7 @@ export async function selectAllPodcast(): Promise<Array<Show>> {
 
         const mysqlQuery: string = "SELECT BIN_TO_UUID(podcastId) as podcastId, podcastName, podcastGenre, podcastDescription, podcastImage FROM podcast"
 
-<<<<<<< HEAD
-=======
 
->>>>>>> swipe-controller
         const result = await mysqlConnection.execute(mysqlQuery) as RowDataPacket[]
 
 
