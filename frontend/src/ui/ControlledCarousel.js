@@ -17,7 +17,7 @@ export const ControlledCarousel = () => {
         <Carousel activeIndex={index} onSelect={handleSelect}>
             <Carousel.Item>
 
-                <Card style={{ width: '20rem'}} className="text-white bg-dark">
+                <Card style={{ width: '80rem'}} className="text-white bg-dark">
                     <Card.Img variant="top" src={girl1} className="bg-image"
                          style={{
                          }}/>
@@ -48,7 +48,7 @@ export const ControlledCarousel = () => {
             </Carousel.Item>
             <Carousel.Item>
 
-                <Card style={{ width: '20rem'}} className="text-white bg-dark">
+                <Card style={{ width: '80rem'}} className="text-white bg-dark">
                     <Card.Img variant="top" src={man} className="bg-image"
                               style={{
                               }}/>
