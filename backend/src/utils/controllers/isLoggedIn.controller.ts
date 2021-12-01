@@ -23,10 +23,10 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
 
     const unverifiedJwtToken: string | undefined = getJwtTokenFromHeader(request.headers);
 
-<<<<<<< HEAD
-  /*  const isJwtValid: JwtPayload | string | boolean = unverifiedJwtToken
-      ? verify(
-=======
+
+   /* const isJwtValid: JwtPayload | string | boolean = unverifiedJwtToken
+      ? verify(*/
+
     //
     // const isJwtValid: boolean|void = unverifiedJwtToken
     //   ? verify(
@@ -37,28 +37,22 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
     //     )
     //   : false;
 
-    const isJwtValid = (unverifiedJwtToken: string | undefined): boolean => {
+ /*   const isJwtValid = (unverifiedJwtToken: string | undefined): boolean => {
         if (unverifiedJwtToken === undefined) {
             return false
         }
         const result: unknown = verify(
->>>>>>> swipe-controller
             unverifiedJwtToken,
             signature(request),
             {maxAge: '3hr'},
             (error: VerifyErrors | null): boolean => error ? false : true
         ) as unknown
 
-<<<<<<< HEAD
-        )
-      : false;*/
-=======
-        console.log(result)
-        return result as boolean
+      : false;
 
-    }
 
->>>>>>> swipe-controller
+    }*/
+
 
      const isJwtValid = (unverifiedJwtToken: string | undefined): boolean => {
          if (unverifiedJwtToken === undefined) {
@@ -78,7 +72,6 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
 
 
 
-    // @ts-ignore
     return isJwtValid(unverifiedJwtToken) && isSessionActive(sessionProfile(request)) ? next() : response.json(status);
 
 }

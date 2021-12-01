@@ -13,14 +13,15 @@ export async function insertSwipeController(request: Request, response: Response
         const {swipeRight, swipeeReceiveProfileId} = request.body
         const profile = <Profile>request.session.profile
         const swiperProfileId = <string>profile.profileId
-        const swipe: Swipe={
-swiperProfileId,
+
+        const swipe: Swipe = {
+            swiperProfileId,
             swipeeReceiveProfileId,
             swipeRight,
         }
         const data = await insertSwipe(swipe)
         // return the response
-        const status: Status = {status: 200, message: null, data};
+        const status: Status = {status: 200, message: 'added', data: null};
         return response.json(status);
     } catch(error) {
         return response.json({

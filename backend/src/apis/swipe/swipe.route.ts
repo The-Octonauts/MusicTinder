@@ -5,8 +5,8 @@ import {isLoggedIn} from "../../utils/controllers/isLoggedIn.controller";
 
 
 
-export const swipeRouter = Router()
+export const swipeRouter = Router();
 
 swipeRouter.route('/')
-    .post(isLoggedIn, insertSwipe)
+    .post(isLoggedIn, insertSwipe);
 
