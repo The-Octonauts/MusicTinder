@@ -10,18 +10,18 @@ import {Profile} from "../../utils/interfaces/Profile";
 export async function insertSwipeController(request: Request, response: Response): Promise<Response<Status>> {
 
     try {
-        const {swipeRight, swipeeReceiveProfileId} = request.body
+        const {swipeeReceiveProfileId, swipeRight} = request.body
         const profile = <Profile>request.session.profile
         const swiperProfileId = <string>profile.profileId
 
         const swipe: Swipe = {
             swiperProfileId,
             swipeeReceiveProfileId,
-            swipeRight,
+            swipeRight
         }
         const data = await insertSwipe(swipe)
         // return the response
-        const status: Status = {status: 200, message: 'added', data: null};
+        const status: Status = {status: 200, message: 'added successfully', data};
         return response.json(status);
     } catch(error) {
         return response.json({
