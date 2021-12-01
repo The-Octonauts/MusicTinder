@@ -7,7 +7,7 @@ import {Profile} from "../../utils/interfaces/Profile";
 
 
 
-export async function insertSwipeController(request: Request, response: Response): Promise<Response<Status>> {
+export async function postSwipeController(request: Request, response: Response): Promise<Response<Status>> {
 
     try {
         const {swipeeReceiveProfileId, swipeRight} = request.body
@@ -19,6 +19,7 @@ export async function insertSwipeController(request: Request, response: Response
             swipeeReceiveProfileId,
             swipeRight
         }
+        console.log("swipe from swipe controller line 22", swipe)
         const data = await insertSwipe(swipe)
         // return the response
         const status: Status = {status: 200, message: 'added successfully', data};

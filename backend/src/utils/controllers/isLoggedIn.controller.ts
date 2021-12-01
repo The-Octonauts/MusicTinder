@@ -15,13 +15,13 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
 
     const isSessionActive = (isProfileActive: Profile | undefined): boolean => !!isProfileActive;
 
-    const getJwtTokenFromHeader = (headers: IncomingHttpHeaders): string | undefined => {
+   /* const getJwtTokenFromHeader = (headers: IncomingHttpHeaders): string | undefined => {
 
         return headers['authorization']
-    };
+    };*/
 
 
-    const unverifiedJwtToken: string | undefined = getJwtTokenFromHeader(request.headers);
+    const unverifiedJwtToken: string | undefined = request.headers['authorization'];
 
 
    /* const isJwtValid: JwtPayload | string | boolean = unverifiedJwtToken
@@ -65,7 +65,7 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
              (error: VerifyErrors | null): boolean => error ? false : true
          ) as unknown
 
-         console.log(result)
+
          return result as boolean
 
      }

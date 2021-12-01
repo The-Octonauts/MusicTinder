@@ -9,7 +9,7 @@ export async function insertSwipe(swipe: Swipe) : Promise<string> {
 /*
         const mySqlQuery = "INSERT INTO swipe(swiperProfileId, swipeeReceiveProfileId, swipeRight) VALUES(UUID_TO_BIN(UUID()),(UUID_TO_BIN(:swipeeReceiveProfileId)),:swipeRight)";
 */
-        const [result]= await mySqlConnection.execute(mySqlQuery, swipe) as [ResultSetHeader, RowDataPacket]
+        await mySqlConnection.execute(mySqlQuery, swipe)
         return "Swipe successful"
     } catch (error) {
         throw error
