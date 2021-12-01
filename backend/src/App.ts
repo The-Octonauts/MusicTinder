@@ -12,7 +12,6 @@ import {passportStrategy} from "./apis/profile/sign-in/sign-in.controller";
 import {signoutRoute} from "./apis/sign-out/sign-out.route";
 import podcastRouter from "./apis/podcast/podcast.route";
 import {savedRouter} from "./apis/saved/saved.route";
-import {insertSwipe} from "./utils/swipe/insertSwipe";
 import {swipeRouter} from "./apis/swipe/swipe.route";
 
 
@@ -61,9 +60,7 @@ export class App {
         this.app.use('/apis/sign-in', signinRouter);
         this.app.use('/apis/sign-out', signoutRoute);
         this.app.use('/apis/podcast',podcastRouter );
-
         this.app.use('/apis/saved' , savedRouter);
-
         this.app.use('/apis/swipe' , swipeRouter);
 
     }
