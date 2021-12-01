@@ -1,6 +1,6 @@
 import {Profile} from "../interfaces/Profile";
 import {connect} from "../database.utils";
-import {ResultSetHeader, RowDataPacket} from 'mysql2';
+
 
 export async function updateProfile(profile: Profile): Promise<string>  {
     try {
