@@ -7,7 +7,10 @@ export async function insertShow(show: Show) : Promise<string> {
         const mySqlConnection = await connect()
 
         const mySqlQuery = "INSERT INTO podcast(podcastId, podcastName, podcastGenre, podcastDescription, podcastImage  ) VALUES(UUID_TO_BIN(UUID()), :podcastName, :podcastGenre, :podcastDescription, :podcastImage)";
+<<<<<<< HEAD
 
+=======
+>>>>>>> swipe-controller
 
         const [result]= await mySqlConnection.execute(mySqlQuery, show) as [ResultSetHeader, RowDataPacket]
         return "Show created successfully"
