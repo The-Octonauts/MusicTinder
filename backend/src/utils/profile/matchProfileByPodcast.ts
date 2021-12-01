@@ -1,3 +1,4 @@
+/*
 import {connect} from "../database.utils";
 import {Profile} from "../interfaces/Profile";
 import {RowDataPacket} from "mysql2";
@@ -10,4 +11,4 @@ export async function matchProfileByPodcast(profileEmail: string): Promise<Profi
     } catch (error) {
         throw error
     }
-}
+}*/
