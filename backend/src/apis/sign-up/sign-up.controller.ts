@@ -4,15 +4,16 @@ import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/interfaces/Profile";
 import {insertProfile} from "../../utils/profile/insertProfile";
 import {setActivationToken, setHash} from '../../utils/auth.utils';
-
-
-const mailgun = require("mailgun-js")
-
-
-
+const Mailgun = require("mailgun-js")
+// import formData from 'form-data'
+import Client from 'mailgun.js/dist/lib/client';
+// import Mailgun from 'mailgun.js';
 
 export async function signupProfileController (request: Request, response: Response): Promise<Response|undefined> {
     try {
+        const mailgun: Mailgun = new Mailgun(FormData)
+        const mailgunClient: Client = mailgun.client({username: "api", key: <string>process.env.MAILGUN_API_KEY})
+
         const {profileEmail, profilePassword} = request.body;
         const profileHash = await setHash(profilePassword);
         const profileActivationToken = setActivationToken();
@@ -43,6 +44,9 @@ export async function signupProfileController (request: Request, response: Respo
             profilePhotoUrl
         };
         await insertProfile (profile)
+
+        await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
+
         const emailComposer: MailComposer = new MailComposer(mailgunMessage)
 
         emailComposer.compile().build((error:any, message: Buffer)=>{

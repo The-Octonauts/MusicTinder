@@ -28,6 +28,8 @@
   "dependencies": {
     "argon2": "^0.27.0",
     "axios": "^0.21.1",
+    "cloudinary": "^1.23.0",
+    "multer": "^1.4.2",
     "cookie-parser": "^1.4.5",
     "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
@@ -50,6 +52,7 @@
     "@types/express-session": "^1.15.16",
     "@types/jsonwebtoken": "^8.3.7",
     "@types/morgan": "^1.7.35",
+    "@types/multer": "^1.4.5",
     "@types/mysql2": "github:types/mysql2",
     "@types/node": "^14.0.9",
     "@types/nodemailer": "^6.4.0",
