@@ -24,7 +24,9 @@ export const App = (store) => (
             <Switch>
                 <Route exact path='/create-your-profile' component={CreateYourProfile} />
                 <Route exact path='/login' component={login}/>
-                <Route exact path='/recommend' component={Recommend} />
+                <Route exact path='/recommend' component={Recommend}>
+                </Route>
+
                 <Route exact path='/' component={Home} />
                 <Route component={FourOhFour} />
 

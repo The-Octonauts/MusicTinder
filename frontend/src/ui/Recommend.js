@@ -1,8 +1,10 @@
 import React, {useState} from "react"
-import {Button, Card, Col, Container, Image, Nav, Row} from "react-bootstrap";
-import {ControlledCarousel} from "./ControlledCarousel";
+import { Col, Card, Button, Container, Image, Nav, Row} from "react-bootstrap";
+import {PodpalCards} from "./PodpalCards";
 import podpal from "../assets/PodPal.png";
 import "./recommend.css";
+import "./PodpalCards"
+import {SwipeButtons} from "./SwipeButtons";
 
 
 export const Recommend = () => {
@@ -43,7 +45,8 @@ export const Recommend = () => {
 
                     </Col>
                     <Col>
-                        <ControlledCarousel/>
+                        <PodpalCards/>
+                        <SwipeButtons/>
                     </Col>
 
                 </Row>
