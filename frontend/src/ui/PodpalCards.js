@@ -34,7 +34,6 @@ export function PodpalCards () {
     return (
         <>
             <div>
-                <h1>Podpal Cards</h1>
                 <div className={"podpalCards-Container"}>
                 {people.map(people =>
                     (<TinderCard

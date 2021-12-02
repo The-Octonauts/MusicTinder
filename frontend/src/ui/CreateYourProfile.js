@@ -24,7 +24,6 @@ console.log(podcasts)
         <>
             <h1 className={"text-center my-md-5"}>Create Your Profile</h1>
             {/*{podcasts.map(podcast => <h2>{podcast.podcastName}</h2>)}*/}
-
             <section>
                 <div className={"d-flex flex-row justify-content-center"}>
                     <div>
@@ -54,11 +53,6 @@ console.log(podcasts)
                                 <Form.Label>Genre</Form.Label>
                                 <Form.Select>
                                     {podcasts.map(podcast => <option>{podcast.podcastGenre.podcastName}</option>)}
-                                    <option>Comedy</option>
-                                    <option>News</option>
-                                    <option>True Crime</option>
-                                    <option>Sports</option>
-                                    <option>Health/Fitness</option>
                                 </Form.Select>
                                 <Form.Select>
                                     {

@@ -1,8 +1,9 @@
 .swipeButtons {
     position: fixed;
-    bottom: 1vh;
+    bottom: 35vh;
+    right: 66vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .swipeButtons .MuiIconButton-root {

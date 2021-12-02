@@ -1,13 +1,71 @@
 import React, {useState} from "react"
-import { Col, Card, Button, Container, Image, Nav, Row} from "react-bootstrap";
+import { Col, Card, Container, Image, Nav, Row} from "react-bootstrap";
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import { styled } from '@mui/material/styles';
 import {PodpalCards} from "./PodpalCards";
 import podpal from "../assets/PodPal.png";
 import "./recommend.css";
 import "./PodpalCards"
 import {SwipeButtons} from "./SwipeButtons";
 
+// function LinkTab(props) {
+//     return (
+//         <Tab
+//             component="a"
+//             onClick={(event) => {
+//                 event.preventDefault();
+//             }}
+//             {...props}
+//             sx={{
+//                 color: '#FCF0D4'
+//             }}
+//         />
+//     );
+// }
+
+const StyledTabs = styled((props) => (
+    <Tabs
+        {...props}
+        TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+    />
+))({
+    '& .MuiTabs-indicator': {
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: '#FCF0D4',
+    },
+    '& .MuiTabs-indicatorSpan': {
+        maxWidth: 40,
+        width: '100%',
+        backgroundColor: '#FCF0D4',
+    },
+});
+
+const StyledTab = styled((props) => <Tab {...props} />)(
+    ({ theme }) => ({
+        textTransform: 'none',
+        fontWeight: theme.typography.fontWeightRegular,
+        fontSize: theme.typography.pxToRem(15),
+        marginRight: theme.spacing(1),
+        color: '#0166AB',
+        '&.Mui-selected': {
+            color: '#FCF0D4',
+        },
+        '&.Mui-focusVisible': {
+            backgroundColor: 'rgba(100, 95, 228, 0.32)',
+        },
+    }),
+);
 
 export const Recommend = () => {
+const [value, setValue] = React.useState(0);
+
+const handleChange = (event, newValue) => {
+    setValue(newValue);
+};
     return (
         <>
             <Container>
@@ -15,14 +73,12 @@ export const Recommend = () => {
                     <Col>
                         <Card>
                             <Card.Header className="cardHeader">
-                                <Nav variant="pills" defaultActiveKey="#first">
-                                    <Nav.Item>
-                                        <Nav.Link href="#first" className="text-white">Matches</Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link href="#link" className="text-white">Messages</Nav.Link>
-                                    </Nav.Item>
-                                </Nav>
+                                <Box sx={{ bgcolor: '#30C3E9' }}>
+                                    <StyledTabs value={value} onChange={handleChange} aria-label="nav tabs example">
+                                        <StyledTab label="Matches" href="#" />
+                                        <StyledTab label="Messages" href="#" />
+                                    </StyledTabs>
+                                </Box>
                             </Card.Header>
                             <Card.Body>
                                 <Card.Title>Start Matching</Card.Title>
@@ -37,7 +93,7 @@ export const Recommend = () => {
                                 <Card.Text className="p-5">
                                     Matches will appear here once you start to Like people.  You can message them directly from here when you're ready to spark up the conversation.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button>Go somewhere</Button>
                             </Card.Body>
                         </Card>
 
@@ -45,8 +101,10 @@ export const Recommend = () => {
 
                     </Col>
                     <Col>
-                        <PodpalCards/>
-                        <SwipeButtons/>
+                        <div>
+                            <PodpalCards/>
+                            <SwipeButtons/>
+                        </div>
                     </Col>
 
                 </Row>

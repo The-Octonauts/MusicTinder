@@ -26,12 +26,10 @@ export const App = (store) => (
                 <Route exact path='/login' component={login}/>
                 <Route exact path='/recommend' component={Recommend}>
                 </Route>
-
                 <Route exact path='/' component={Home} />
                 <Route component={FourOhFour} />
-
             </Switch>
-            <Footer/>
+            {/*<Footer/>*/}
         </BrowserRouter>
         </Provider>
     </>
