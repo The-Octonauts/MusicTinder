@@ -4,21 +4,21 @@ import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/interfaces/Profile";
 import {insertProfile} from "../../utils/profile/insertProfile";
 import {setActivationToken, setHash} from '../../utils/auth.utils';
-const Mailgun = require("mailgun-js")
-// import formData from 'form-data'
+import formData from 'form-data'
+import Mailgun from 'mailgun.js';
 import Client from 'mailgun.js/dist/lib/client';
-// import Mailgun from 'mailgun.js';
+// const mailgun = new Mailgun(formData)
 
 export async function signupProfileController (request: Request, response: Response): Promise<Response|undefined> {
     try {
-        const mailgun: Mailgun = new Mailgun(FormData)
+        const mailgun: Mailgun = new Mailgun(formData)
         const mailgunClient: Client = mailgun.client({username: "api", key: <string>process.env.MAILGUN_API_KEY})
 
         const {profileEmail, profilePassword} = request.body;
         const profileHash = await setHash(profilePassword);
         const profileActivationToken = setActivationToken();
         const profilePhotoUrl = "😀"
-        const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`
+        const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}/activation/${profileActivationToken}`
         console.log(profileActivationToken);
 
         const message = `<h2>Welcome to PodPal</h2>
@@ -47,27 +47,31 @@ export async function signupProfileController (request: Request, response: Respo
 
         await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
 
-        const emailComposer: MailComposer = new MailComposer(mailgunMessage)
-
-        emailComposer.compile().build((error:any, message: Buffer)=>{
-            const mg = mailgun ({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN});
-            console.log(message.toString("ascii"))
-            const compiledEmail = {
-                to: profileEmail,
-                message: message.toString("ascii")
-            }
+        // const emailComposer: MailComposer = new MailComposer(mailgunMessage)
+        //
+        // emailComposer.compile().build((error:any, message: Buffer)=>{
+        //     const mg = mailgun ({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN});
+        //     // const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY})
+        //     console.log(message.toString("ascii"))
+        //     const compiledEmail = {
+        //         to: profileEmail,
+        //         message: message.toString("ascii")
+        //     }
             const status: Status = {
                 status: 200,
                 message:"Profile Successfully created check your Email.",
                 data: null
             };
-            mg.messages().sendMime(compiledEmail, (sendError:any, body:any)=> {
-                if (sendError){
-                    return response.json({status: 418, data: null, message: "Error Sending Email"})
-                }
-                return response.json(status);
-            })
-        })
+        //     mg.messages().sendMime(compiledEmail, (sendError:any, body:any)=> {
+        //         if (sendError){
+        //             return response.json({status: 418, data: null, message: "Error Sending Email"})
+        //         }
+        //         return response.json(status);
+        //     })
+        // })
+
+        return response.json(status)
+
     } catch (error) {
         const status: Status = {
             status: 500,
