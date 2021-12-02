@@ -71,7 +71,7 @@ const handleChange = (event, newValue) => {
             <Container>
                 <Row className="mt-5">
                     <Col>
-                        <Card>
+                        <Card className={"cardBody"}>
                             <Card.Header className="cardHeader">
                                 <Box sx={{ bgcolor: '#30C3E9' }}>
                                     <StyledTabs value={value} onChange={handleChange} aria-label="nav tabs example">

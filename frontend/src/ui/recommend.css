@@ -12,6 +12,10 @@
     height: 100px;
 }
 
+.cardBody {
+    height: 45vw;
+}
+
 /*.img-relative {
     width: 100px;
     height: 200px;
