@@ -2,7 +2,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {FormDebugger} from "../../utils/FormDebugger";
 import React from "react";
 
-export const SignUpFormContent = (props) => {
+export const SignInFormContent = (props) => {
     const {
         status,
         values,
@@ -29,7 +29,7 @@ export const SignUpFormContent = (props) => {
                         </div>
                         <input
                             className="form-control"
-                            name="profileEmail"
+                            id="profileEmail"
                             type="email"
                             value={values.profileEmail}
                             placeholder="Enter email"
@@ -57,7 +57,7 @@ export const SignUpFormContent = (props) => {
                             </div>
                         </div>
                         <input
-                            name="profilePassword"
+                            id="profilePassword"
                             className="form-control"
                             type="password"
                             placeholder="Password"
@@ -70,30 +70,6 @@ export const SignUpFormContent = (props) => {
                         <div className="alert alert-danger">{errors.profilePassword}</div>
                     )}
                 </div>
-                <div className="form-group">
-                    <label htmlFor="profilePasswordConfirm">Confirm Your Password</label>
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <div className="input-group-text">
-                                <FontAwesomeIcon icon="key"/>
-                            </div>
-                        </div>
-                        <input
-
-                            className="form-control"
-                            type="password"
-                            name="profilePasswordConfirm"
-                            placeholder="Password Confirm"
-                            value={values.profilePasswordConfirm}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        />
-                    </div>
-                    {errors.profilePasswordConfirm && touched.profilePasswordConfirm && (
-                        <div className="alert alert-danger">{errors.profilePasswordConfirm}</div>
-                    )}
-                </div>
-
 
                 <div className="form-group">
                     <button className="btn btn-primary mb-2" type="submit">Submit</button>
@@ -104,15 +80,9 @@ export const SignUpFormContent = (props) => {
                     >Reset
                     </button>
                 </div>
-
-
                 <FormDebugger {...props} />
             </form>
-            {
-                status && (<div className={status.type}>{status.message}</div>)
-            }
+            {status && (<div className={status.type}>{status.message}</div>)}
         </>
-
-
     )
 };
