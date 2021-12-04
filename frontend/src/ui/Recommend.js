@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import {Button, Card, Col, Container, Image, Nav, Row} from "react-bootstrap";
-import {ControlledCarousel} from "./ControlledCarousel";
+import {ControlledCarousel} from "./shared/ControlledCarousel";
 import podpal from "../assets/PodPal.png";
 import "./recommend.css";
 
