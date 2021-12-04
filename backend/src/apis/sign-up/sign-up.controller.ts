@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import MailComposer from "nodemailer/lib/mail-composer";
+// import MailComposer from "nodemailer/lib/mail-composer";
 import {Status} from "../../utils/interfaces/Status";
 import {Profile} from "../../utils/interfaces/Profile";
 import {insertProfile} from "../../utils/profile/insertProfile";
@@ -7,21 +7,23 @@ import {setActivationToken, setHash} from '../../utils/auth.utils';
 import formData from 'form-data'
 import Mailgun from 'mailgun.js';
 import Client from 'mailgun.js/dist/lib/client';
-// const mailgun = new Mailgun(formData)
+// const mailgun = new Mailgun(formData);
+
 
 export async function signupProfileController (request: Request, response: Response): Promise<Response|undefined> {
     try {
         const mailgun: Mailgun = new Mailgun(formData)
-        const mailgunClient: Client = mailgun.client({username: "api", key: <string>process.env.MAILGUN_API_KEY})
+        const mailgunClient: Client = mailgun.client({username: "api", key: <string>process.env.MAILGUN_API_KEY,
+            public_key: process.env.MAILGUN_PUBLIC_KEY || 'pubkey-37a376ba3bab3ee8bc632b5ec301b5e5'})
 
         const {profileEmail, profilePassword} = request.body;
         const profileHash = await setHash(profilePassword);
         const profileActivationToken = setActivationToken();
-        const profilePhotoUrl = "😀"
+        const profilePhotoUrl ="http://www.fillmurray.com/100/150"
         const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}/activation/${profileActivationToken}`
         console.log(profileActivationToken);
 
-        const message = `<h2>Welcome to PodPal</h2>
+        const messages = `<h2>Welcome to PodPal</h2>
         <p>select your favorite podcast</p>
         <p><a href="${basePath}">${basePath}</a></p>`
 
@@ -30,9 +32,8 @@ export async function signupProfileController (request: Request, response: Respo
         const mailgunMessage = {
             from:`Mailgun Sandbox<postmaster@${process.env.MAILGUN_DOMAIN}>`,
             to: profileEmail,
-            subject: "One step closer to PodPal",
-            text: 'Test email text.',
-            html: message
+            subject: "Testing some Mailgun ",
+            html: "<h1>message</h1>"
 
         }
         const profile: Profile = {
@@ -44,8 +45,9 @@ export async function signupProfileController (request: Request, response: Respo
             profilePhotoUrl
         };
         await insertProfile (profile)
-
-        await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
+// console.log(process.env.MAILGUN_DOMAIN)
+//         console.log(mailgunMessage)
+        // await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
 
         // const emailComposer: MailComposer = new MailComposer(mailgunMessage)
         //
@@ -73,12 +75,16 @@ export async function signupProfileController (request: Request, response: Respo
         return response.json(status)
 
     } catch (error) {
+
+
+
         const status: Status = {
             status: 500,
             // @ts-ignore
             message: error.message,
             data: null
         };
+        console.log(error)
         return response.json(status);
     }
 }
