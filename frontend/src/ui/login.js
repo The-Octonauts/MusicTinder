@@ -37,7 +37,7 @@ export const login = () => {
 
                         </Col>
                         <Col className="d-flex flex-column align-items-center">
-                            <h1>Sign In</h1>
+                            <h2>Sign In</h2>
                             <>
                                 <SignInForm/>
                             </>
