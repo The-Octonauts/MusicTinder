@@ -13,3 +13,7 @@
     background-size: contain;
     align-content: center;
 }
+
+.font-link {
+    font-family: 'Raleway', bold;
+}

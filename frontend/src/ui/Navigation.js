@@ -18,8 +18,8 @@ export function Navigation (){
                     <Nav className="me-auto "> </Nav>
 
                     <Nav>
-                        <Nav.Link href="/about" >Inbox</Nav.Link>
                         <Nav.Link href="/about" >Home</Nav.Link>
+                        <Nav.Link href="/CreateYourProfile" >Sign-In</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

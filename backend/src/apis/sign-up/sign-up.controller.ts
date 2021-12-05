@@ -6,7 +6,7 @@ import {insertProfile} from "../../utils/profile/insertProfile";
 import {setActivationToken, setHash} from '../../utils/auth.utils';
 
 
-const mailgun = require("mailgun-js")
+const mailgun = require("mailgun.js")
 
 
 
