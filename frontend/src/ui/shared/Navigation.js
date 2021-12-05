@@ -1,6 +1,6 @@
 import  React from "react"
 import {Container, Nav, Navbar} from "react-bootstrap";
-import podpal from "../assets/Podpal_navbar.png"
+import podpal from "../../assets/Podpal_navbar.png"
 
 
 export function Navigation (){

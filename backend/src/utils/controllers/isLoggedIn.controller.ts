@@ -27,6 +27,11 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
    /* const isJwtValid: JwtPayload | string | boolean = unverifiedJwtToken
       ? verify(*/
 
+
+
+  /*  const isJwtValid: JwtPayload | string | boolean = unverifiedJwtToken
+      ? verify(
+
     //
     // const isJwtValid: boolean|void = unverifiedJwtToken
     //   ? verify(
@@ -42,16 +47,28 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
             return false
         }
         const result: unknown = verify(
+<<<<<<< HEAD
+=======
+
+>>>>>>> upload-image
             unverifiedJwtToken,
             signature(request),
             {maxAge: '3hr'},
             (error: VerifyErrors | null): boolean => error ? false : true
         ) as unknown
 
+<<<<<<< HEAD
       : false;
 
 
     }*/
+
+      //   )
+      // : false;*/
+
+
+    // }
+
 
 
      const isJwtValid = (unverifiedJwtToken: string | undefined): boolean => {
@@ -69,6 +86,7 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
          return result as boolean
 
      }
+
 
 
 

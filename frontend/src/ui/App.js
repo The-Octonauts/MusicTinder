@@ -2,13 +2,13 @@ import React from "react"
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import "./App.js"
-import { Home } from './Home'
-import { FourOhFour } from './FourOhFour'
+import { Home } from './home/Home'
+import { FourOhFour } from './four-oh-four/FourOhFour'
 import {Recommend} from './Recommend'
 import {login} from './login';
-import {Navigation} from './Navigation';
-import {Footer} from "./Footer";
-import {CreateYourProfile} from "./CreateYourProfile";
+import {Navigation} from './shared/Navigation';
+import {Footer} from "./shared/Footer";
+import {CreateYourProfile} from "./profile/CreateYourProfile";
 import {Provider} from "react-redux";
 import {Profile} from "../ui/profile/Profile";
 import {SignUp} from "../../src/ui/signUp/SignUp";

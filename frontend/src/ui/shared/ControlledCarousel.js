@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import Carousel from "react-bootstrap/Carousel";
 import {Card, Image, ListGroup, ListGroupItem, Row} from "react-bootstrap";
-import man from "../assets/stylish-man-2021-09-24-03-15-41-utc.jpg";
-import girl1 from "../assets/woman-2021-09-01-13-01-13-utc.JPG";
-import girl2 from "../assets/woman-2021-09-01-13-02-54-utc.JPG";
+import man from "../../assets/stylish-man-2021-09-24-03-15-41-utc.jpg";
+import girl1 from "../../assets/woman-2021-09-01-13-01-13-utc.JPG";
+import girl2 from "../../assets/woman-2021-09-01-13-02-54-utc.JPG";
 
 export const ControlledCarousel = () => {
 
