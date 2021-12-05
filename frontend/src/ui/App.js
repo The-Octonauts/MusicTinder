@@ -10,8 +10,8 @@ import {Navigation} from './shared/Navigation';
 import {Footer} from "./shared/Footer";
 import {CreateYourProfile} from "./profile/CreateYourProfile";
 import {Provider} from "react-redux";
-import {Profile} from "../ui/profile/Profile";
-import {SignUp} from "../../src/ui/signUp/SignUp";
+import {Profile} from "./profile/Profile";
+import {SignUp} from "./signUp/SignUp";
 
 
 export const App = (store) => (

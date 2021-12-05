@@ -2,7 +2,6 @@ import React from 'react';
 import {httpConfig} from "../../utils/httpConfig";
 import * as Yup from "yup";
 import {Formik} from "formik";
-
 import {SignUpFormContent} from "../../ui/signUp/signUpFormContent";
 
 export const SignUpForm = () => {
@@ -31,6 +30,7 @@ export const SignUpForm = () => {
 
                     if(reply.status === 200) {
                         resetForm();
+
                     }
                     setStatus({message, type});
                 }

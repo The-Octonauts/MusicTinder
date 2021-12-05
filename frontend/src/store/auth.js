@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import * as jwtDecode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 
 
 const slice = createSlice({
@@ -19,7 +19,7 @@ export const fetchAuth = () => async (dispatch, getState) => {
 
     if (state.auth === null) {
         const token = window.localStorage.getItem("authorization")
-        let decodedToken = token ? jwtDecode(token) : null
+        let decodedToken = token ? jwt_decode(token) : null
         if (decodedToken?.exp < Math.round( new Date() / 1000)){
             decodedToken = null
         }

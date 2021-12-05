@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {httpConfig} from "../../utils/httpConfig";
 import {Formik} from "formik";
 import * as Yup from "yup";
 import {SignInFormContent} from "./SignInFormContent";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import jwt_decode from "jwt-decode";
-import {getAuth} from "../../store/auth";
+import {fetchAuth, getAuth} from "../../store/auth";
+import Button from "react-bootstrap/Button";
 
 export const SignInForm = () => {
 
@@ -32,7 +33,7 @@ export const SignInForm = () => {
             .then(reply => {
                 let {message, type} = reply;
                 setStatus({message, type});
-                if(reply.status === 200 && reply.headers["authorization"]) {
+                if (reply.status === 200 && reply.headers["authorization"]) {
                     window.localStorage.removeItem("authorization");
                     window.localStorage.setItem("authorization", reply.headers["authorization"]);
                     resetForm();
@@ -42,16 +43,40 @@ export const SignInForm = () => {
                 setStatus({message, type});
             });
     };
+    const auth = useSelector(state => state.auth)
+   const effects = () => {
+        dispatch(fetchAuth())
 
+   }
+   useEffect(effects)
+
+    const LoginRecommend = () => {
+        return (
+    <>
+        {(saved.savedProfileId !== null) ? (
+            < button href = "/recommend" > < /button>
+            ) : (
+        <Button href="/create-your-profile">Set up profile</Button>
+
+    ) }
+    </>
+        )
+    }
     return (
         <>
-            <Formik
-                initialValues={signIn}
-                onSubmit={submitSignIn}
-                validationSchema={validator}
-            >
-                {SignInFormContent}
-            </Formik>
+            {auth ? (
+               <LoginRecommend/>
+            ) : (
+                <>
+                    <Formik
+                        initialValues={signIn}
+                        onSubmit={submitSignIn}
+                        validationSchema={validator}
+                    >
+                        {SignInFormContent}
+                    </Formik>
+                </>
+            )}
         </>
     )
 };
