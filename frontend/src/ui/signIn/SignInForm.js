@@ -6,8 +6,10 @@ import {SignInFormContent} from "./SignInFormContent";
 import {useDispatch, useSelector} from "react-redux";
 import jwt_decode from "jwt-decode";
 import {fetchAuth, getAuth} from "../../store/auth";
+import saved, { fetchAllSavedPodcasts } from "../../store/saved"
 import Button from "react-bootstrap/Button";
 
+saved.savedProfileId = undefined;
 export const SignInForm = () => {
 
     const dispatch = useDispatch()
