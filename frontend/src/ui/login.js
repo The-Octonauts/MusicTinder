@@ -8,6 +8,7 @@ import {signUpForm} from "./signUp/signUpForm";
 import {Formik, Form, Field} from "formik";
 import {SignUpModal} from "./signUp/signUpModal";
 import {SignInForm} from "./signIn/SignInForm";
+import { SignOutComponent} from "./SignOut/SignOut";
 
 export const FontLink = () => {
     return(
@@ -40,6 +41,9 @@ export const login = () => {
                             <h2>Sign In</h2>
                             <>
                                 <SignInForm/>
+                            </>
+                            <>
+                                <SignOutComponent />
                             </>
                         </Col>
                     </Row>
