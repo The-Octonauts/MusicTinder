@@ -25,8 +25,8 @@ function dataDownLoaderNews() : Promise<any> {
 
 	async function downloadShow() {
 		try {
-			const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=1WErgoXiZwgctkHLzqU6nf%2C3IM0lmZxpFAY7CwMuv9H4g%2C2mTUnDkuKUkhiueKcVWoP0%2C4Kbsy61zJSzPxNZZ3PKbXl%2C6BRSvIBNQnB68GuoXJRCnQ%2C0KxdEdeY2Wb3zr28dMlQva%2C3fQkNGzE1mBF1VrxVTY0oo%2C2HQ0xANSYpBvxvsEMuYxP9%2C3YMFdNqoNtVcCBKSUvjr8n%2C4sftHO603JaFqpuQBEZReL",
-				{headers: {Authorization: "Bearer " + "BQDS4uHfyVjpHCRVoZnfqB95czz8AVch0cZiXTkAC_Rb2ohi1V2mB6SkxWFtsqcX4b1zcVAL4K-5xp3t8-sYSO9Tzvtn9pCtCncRSJkyGjymESGDb2xuuNDarVRBcn6EJe2Akzvs9_C8El_RCxtrCbceyNVXzz5DhtGPRZi_yo24ocLq9IiZjqHvt7QF96Q9GHmmNcjuj8DzMSreU_Ek-rMqY6U_RD46TMOuuQ"}})
+				{headers: {Authorization: "Bearer " + 			const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=1WErgoXiZwgctkHLzqU6nf%2C3IM0lmZxpFAY7CwMuv9H4g%2C2mTUnDkuKUkhiueKcVWoP0%2C4Kbsy61zJSzPxNZZ3PKbXl%2C6BRSvIBNQnB68GuoXJRCnQ%2C0KxdEdeY2Wb3zr28dMlQva%2C3fQkNGzE1mBF1VrxVTY0oo%2C2HQ0xANSYpBvxvsEMuYxP9%2C3YMFdNqoNtVcCBKSUvjr8n%2C4sftHO603JaFqpuQBEZReL",
+							"BQDS4uHfyVjpHCRVoZnfqB95czz8AVch0cZiXTkAC_Rb2ohi1V2mB6SkxWFtsqcX4b1zcVAL4K-5xp3t8-sYSO9Tzvtn9pCtCncRSJkyGjymESGDb2xuuNDarVRBcn6EJe2Akzvs9_C8El_RCxtrCbceyNVXzz5DhtGPRZi_yo24ocLq9IiZjqHvt7QF96Q9GHmmNcjuj8DzMSreU_Ek-rMqY6U_RD46TMOuuQ"}})
 
 			/*console.log(data.shows[5].name)*/
 

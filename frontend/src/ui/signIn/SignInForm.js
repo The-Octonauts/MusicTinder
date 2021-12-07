@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {httpConfig} from "../../utils/httpConfig";
 import {Formik} from "formik";
 import * as Yup from "yup";
@@ -50,15 +50,19 @@ export const SignInForm = () => {
         dispatch(fetchAuth())
 
    }
+    const hasSavedPodcasts = useSelector(
+        (state) => state.saved.hasSavedPodcasts
+    );
+
    useEffect(effects)
 
     const LoginRecommend = () => {
         return (
     <>
-        {(saved.savedProfileId !== null) ? (
-            <Button href = "/create-your-profile" >Start Matching < /Button>
+        {(hasSavedPodcasts !== null) ? (
+            <Button href = "/recommend" >Start Matching< /Button>
             ) : (
-        <Button href="/recommend">Set up profile</Button>
+        <Button href="/create-your-profile">Set Up Profile</Button>
 
     ) }
     </>

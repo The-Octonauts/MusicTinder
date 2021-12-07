@@ -1,5 +1,4 @@
-/*
-import {connect} from "../database.utils";
+/*import {connect} from "../database.utils";
 import {Profile} from "../interfaces/Profile";
 import {RowDataPacket} from "mysql2";
 

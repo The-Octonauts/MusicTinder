@@ -1,10 +1,16 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {httpConfig} from "../utils/httpConfig"
 
+const initialState = {
+    selectedData: "test select",
+    hasSavedPodcasts: false,
+    //TODO:Check if has any saved podcasts, and if so set to true, if not set to false.
+};
+
 // Define our reducer and action.
 const savedSlice = createSlice({
     name: "saved",
-    initialState: [],
+    initialState: initialState,
     reducers: {
         getAllSavedPodcasts: (saved, action) => {
             return action.payload
