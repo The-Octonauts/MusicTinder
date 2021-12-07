@@ -1,6 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {httpConfig} from "../utils/httpConfig"
-import auth from "./auth";
 
 // Define our reducer and action.
 const savedSlice = createSlice({
@@ -16,9 +15,8 @@ const savedSlice = createSlice({
 // Make our actions callable as function getAllMisquotes.
 export const {getAllSavedPodcasts} = savedSlice.actions
 // Create an export to allow async calls to our action
-auth.savedProfileId = undefined;
 export const fetchAllSavedPodcasts = () => async dispatch => {
-    const {data} = await httpConfig(`/apis/saved/${auth.savedProfileId}`)
+    const {data} = await httpConfig(`/apis/saved/$auth.savedProfileId`)
     dispatch(getAllSavedPodcasts(data))
 }
 

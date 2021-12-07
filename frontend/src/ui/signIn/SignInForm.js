@@ -56,9 +56,9 @@ export const SignInForm = () => {
         return (
     <>
         {(saved.savedProfileId !== null) ? (
-            < button href = "/recommend" > < /button>
+            <Button href = "/create-your-profile" >Start Matching < /Button>
             ) : (
-        <Button href="/create-your-profile">Set up profile</Button>
+        <Button href="/recommend">Set up profile</Button>
 
     ) }
     </>

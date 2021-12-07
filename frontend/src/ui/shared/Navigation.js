@@ -1,6 +1,7 @@
 import  React from "react"
 import {Container, Nav, Navbar} from "react-bootstrap";
 import podpal from "../../assets/Podpal_navbar.png"
+import {SignOutComponent} from "../SignOut/SignOut";
 
 
 export function Navigation (){
@@ -18,7 +19,12 @@ export function Navigation (){
                     <Nav className="me-auto "> </Nav>
 
                     <Nav>
-                        <Nav.Link href="/about" >Home</Nav.Link>
+                        <Nav.Link>
+                        </Nav.Link>
+
+                        <>
+                            <SignOutComponent />
+                        </>
                         <Nav.Link href="/CreateYourProfile" >Sign-In</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

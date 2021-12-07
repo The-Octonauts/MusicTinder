@@ -4,7 +4,7 @@ import { fetchSignUp } from "../store/signUp";
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import podpal from "../assets/PodPal (1).png"
 import "./login.css"
-import {signUpForm} from "./signUp/signUpForm";
+import {SignUpForm, signUpForm} from "./signUp/signUpForm";
 import {Formik, Form, Field} from "formik";
 import {SignUpModal} from "./signUp/signUpModal";
 import {SignInForm} from "./signIn/SignInForm";
@@ -41,9 +41,6 @@ export const login = () => {
                             <h2>Sign In</h2>
                             <>
                                 <SignInForm/>
-                            </>
-                            <>
-                                <SignOutComponent />
                             </>
                         </Col>
                     </Row>

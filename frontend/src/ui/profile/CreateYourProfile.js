@@ -3,6 +3,7 @@ import {Form, Image} from "react-bootstrap";
 import './CreateYourProfile.css'
 import {fetchAllPodcasts} from "../../store/podcast";
 import {useDispatch, useSelector} from "react-redux";
+import {EditProfileForm} from "./EditProfileForm";
 
 export const CreateYourProfile = () => {
 
