@@ -49,7 +49,7 @@ export const PodcastSelect = () => {
             axios({
                 method: 'post',
                 url: <domain-name> + 'url',
-                    data: {'city_name' 'values.city_name'},
+                    data: {'city_name': 'values.city_name'},
                     headers: {'Content-Type', 'application/json'}
                     }).then(response => {
                     }).catch(err => {
