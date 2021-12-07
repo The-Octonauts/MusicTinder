@@ -14,6 +14,7 @@ CREATE TABLE profile (
                          profileId BINARY(16) NOT NULL,
                          profileActivationToken CHAR(32),
                          profileEmail VARCHAR(32) NOT NULL,
+                         profileBio VARCHAR(1500),
                          profileHash  CHAR(97) NOT NULL,
                          profilePhotoId VARCHAR(128),
                          profilePhotoUrl varchar(128),
