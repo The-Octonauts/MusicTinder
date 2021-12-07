@@ -23,7 +23,7 @@ export const EditProfileFormContent = (props) => {
         <>
             <form onSubmit={handleSubmit}>
                 {/*controlId must match what is passed to the initialValues prop*/}
-                <div className="form-group">
+                {/*<div className="form-group">
                     <label htmlFor="profileEmail">Email Address</label>
                     <div className="input-group">
                         <div className="input-group-prepend">
@@ -49,10 +49,10 @@ export const EditProfileFormContent = (props) => {
                             </div>
                         )
                     }
-                </div>
+                </div>*/}
 
                 <div className="form-group">
-                    <label htmlFor="profilePhotUrl">ProfilePhoto</label>
+                    <label htmlFor="profilePhotoUrl">ProfilePhoto</label>
                     <div className="input-group">
                         <div className="input-group-prepend">
                             <div className="input-group-text">
@@ -79,7 +79,7 @@ export const EditProfileFormContent = (props) => {
                     }
                 </div>
 
-                {<ImageDropZone
+                <ImageDropZone
                     formikProps={{
                         values,
                         handleChange,
@@ -87,7 +87,7 @@ export const EditProfileFormContent = (props) => {
                         setFieldValue,
                         fieldValue:"profilePhotoUrl"
                     }}
-
+                    />
                 <div className="form-group">
                     <label htmlFor="profileBio">Bio</label>
                     <div className="input-group">
@@ -130,7 +130,9 @@ export const EditProfileFormContent = (props) => {
                     >Reset
                     </button>
                 </div>
+{/*
                 <FormDebugger {...props} />
+*/}
             </form>
 
             {
@@ -140,4 +142,4 @@ export const EditProfileFormContent = (props) => {
 
 
     )
-};
+                    };
