@@ -1,73 +1,86 @@
-import React from "react";
-import {Form, Image} from "react-bootstrap";
+import React, { useState, useEffect} from "react";
 import './CreateYourProfile.css'
+/*
 import {fetchAllPodcasts} from "../../store/podcast";
+*/
 import {useDispatch, useSelector} from "react-redux";
-import {EditProfileForm} from "./EditProfileForm";
-
-export const CreateYourProfile = () => {
-
-
-    const dispatch = useDispatch()
-    const initialEffects = () => {
-        dispatch(fetchAllPodcasts())
-    }
-    React.useEffect(initialEffects, [dispatch])
-
-    // Render our misquotes constant - before we have our data, render the skeleton.
-    // After we have our data, render the full object with our data.
-    const podcasts = useSelector((state) => state.podcast ? state.podcast : [])
-
-console.log(podcasts)
+import { View, Text, Alert} from 'react-native';
+import { Button, Title, TextInput } from 'react-native-paper';
+import { useFormik } from 'formik';
+import { Picker } from '@react-native-community/picker'
+import axios from 'axios';
 
 
-    return(
-        <>
-            <h1 className={"text-center my-md-5"}>Create Your Profile</h1>
-            {/*{podcasts.map(podcast => <h2>{podcast.podcastName}</h2>)}*/}
 
-            <section>
-                <div className={"d-flex flex-row justify-content-center"}>
-                    <div>
-                        <Image src="assets/profilePic.png" alt="profilePic" width="250px" height="350px" thumbnail/>
-                        <div>
-                            <input type="file"/>
-                            <button>Upload</button>
-                        </div>
-                    </div>
-                    <div className="ms-5">
-                        <Form>
-                            <Form.Group>
-                                <Form.Label>Bio</Form.Label>
-                                <Form.Control as="textarea" rows={8} cols={70}/>
-                            </Form.Group>
-                        </Form>
-                    </div>
-                </div>
-            </section>
+export const PodcastSelect = () => {
+    const cities = [
+        {name:"Los Angeles", id: 1},
+        {name:"Philadelphia", id: 2},
+        {name:"Chicago", id: 3},
+        {name:"Washington DC", id: 4},
+        {name:"New York", id: 5},
+        {name:"San Diego", id: 6},
+        {name:"Fort Worth", id: 7},
+        {name:"Houston", id: 8},
+        {name:"Cleveland", id: 9},
+        {name:"Pittsburg", id: 10},
+        {name:"Detroit", id: 11},
+        {name:"Jacksonville", id: 12},
+        {name:"Denver", id: 13},
+        {name:"Columbus", id: 14},
+        {name:"El Paso", id: 15},
+        {name:"New Orleans", id: 16},
+        {name:"Cincinnati", id: 17},
+        {name:"Nashville", id: 18},
+        {name:"Miami", id: 19},
+        {name:"Tampa", id: 20},
+        {name:"Bakersfield", id: 22},
+        {name:"Tuscon", id: 23},
+        {name:"Baltimore", id: 25},
+        {name:"St Louis", id: 26},
+        {name:"Las Vegas", id: 27},
+        {name:"Memphis", id: 28},
+        {name:"Seattle", id: 29},
+        {name:"San Fransisco", id: 30},
+    ]
+    const formik = useFormik({
+        initialValues: { city_name: '' },
+        onSubmit: values => {
+            axios({
+                method: 'post',
+                url: <domain-name> + 'url',
+                    data: {'city_name' 'values.city_name'},
+                    headers: {'Content-Type', 'application/json'}
+                    }).then(response => {
+                    }).catch(err => {
+                        Alert.alert('An error occurred!', err.message,
+                            [{ text: 'Okay' }]);
+                    })}
+                    });
+                    return(
+                    <View>
 
-            <section>
-                <h2 className={"text-center my-md-5"}>Please add your favorite podcasts</h2>
-                <div class="formSize">
-                    <Form>
-                        <div>
-                            <Form.Group>
-                                <Form.Label>Genre</Form.Label>
-                                <Form.Select>
-                                    {podcasts.map(podcast => <option>{podcast.podcastGenre}</option>)}
-                                </Form.Select>
-                                <Form.Select>
-                                    {
-
-                                    }
-                                </Form.Select>
-                                <button type="submit" value="Submit" className="btn btn-primary">Submit</button>
-                            </Form.Group>
-                        </div>
-                    </Form>
-                    <button type="submit" value="Submit" className="btn btn-primary">Create Account</button>
-                </div>
-            </section>
-        </>
-    )
-}
+                        <Picker
+                            enabled={true}
+                            mode="dropdown"
+                            placeholder="Select City"
+                            onValueChange={formik.handleChange('city_name')}
+                            selectedValue={formik.values.city_name}
+                        >
+                            {cities.map((item) => {
+                                return(
+                                    <Picker
+                                    label={item.name.toString()}
+                                    value={item.name.toString()}
+                                    key={item.id.toString()} />)
+                            })}
+                        </Picker>
+                        <Button
+                            mode="contained"
+                            title='submit'
+                            onPress={formik.handleSubmit}
+                        >
+                            Enter
+                        </Button>
+                    </View>
+                    )};
