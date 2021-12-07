@@ -9,14 +9,12 @@ export const EditProfileForm = (props) => {
     const {profile} = props
 
     const validationObject = Yup.object().shape({
-        profileEmail: Yup.string()
-            .email("email must be a valid email"),
-        profilePhone: Yup.string()
-            .min(10, "phone number is to short")
-            .max(20, "phone Number is to long."),
-        profileAvatarUrl: Yup.mixed(),
-        profileAtHandle: Yup.string()
-            .min(1, "profile @handle is to long.")
+        profileBIo: Yup.string()
+            .min(1,"must be longer than 1 character")
+        .max(1000,"Bio to long"),
+        profilePhotoUrl: Yup.mixed(),
+
+
     });
 
     function submitEditedProfile (values, {resetForm, setStatus}) {
@@ -34,13 +32,13 @@ export const EditProfileForm = (props) => {
                 })
         };
 
-        if (values.profileAvatarUrl !== undefined) {
-            httpConfig.post(`/apis/image-upload/`, values.profileAvatarUrl)
+        if (values.profilePhotoUrl !== undefined) {
+            httpConfig.post(`/apis/image-upload/`, values.profilePhotoUrl)
                 .then(reply => {
                         let {message, type} = reply;
 
                         if (reply.status === 200) {
-                            submitUpdatedProfile({...values, profileAvatarUrl:message})
+                            submitUpdatedProfile({...values, profilePhotoUrl:message})
                         } else {
                             setStatus({message, type});
                         }

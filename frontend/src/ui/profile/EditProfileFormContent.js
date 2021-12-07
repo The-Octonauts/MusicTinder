@@ -1,9 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-/*
-import { ImageDropZone } from '../shared/components/ImageDropZone'
-*/
-import { FormDebugger } from '../../utils/FormDebugger'
+import {ImageDropZone} from "../shared/ImageDropZone";
+
+
 export const EditProfileFormContent = (props) => {
     const {
         setFieldValue,
@@ -53,7 +52,7 @@ export const EditProfileFormContent = (props) => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="profileHandle">@Handle</label>
+                    <label htmlFor="profilePhotUrl">ProfilePhoto</label>
                     <div className="input-group">
                         <div className="input-group-prepend">
                             <div className="input-group-text">
@@ -62,62 +61,66 @@ export const EditProfileFormContent = (props) => {
                         </div>
                         <input
                             className="form-control"
-                            name="profileAtHandle"
+                            name="profilePhotoUrl"
                             type="text"
-                            value={values.profileAtHandle}
-                            placeholder="@Handle"
+                            value={values.profilePhotoUrl}
+                            placeholder="place photo"
                             onChange={handleChange}
                             onBlur={handleBlur}
 
                         />
                     </div>
                     {
-                        errors.profileAtHandle && touched.profileAtHandle && (
+                        errors.profilePhotoUrl && touched.profilePhotoUrl && (
                             <div className="alert alert-danger">
-                                {errors.profileAtHandle}
+                                {errors.profilePhotoUrl}
                             </div>
                         )
                     }
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="profilePhone">Phone Number</label>
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <div className="input-group-text">
-                                <FontAwesomeIcon icon="phone"/>
-                            </div>
-                        </div>
-                        <input
-                            className="form-control"
-                            id="profilePhone"
-                            type="text"
-                            value={values.profilePhone}
-                            placeholder="Enter email"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-
-                        />
-                    </div>
-
-                    {
-                        errors.profilePhone && touched.profilePhone && (
-                            <div className="alert alert-danger">
-                                {errors.profilePhone}
-                            </div>
-                        )
-
-                    }
-                </div>
-              {/*  <ImageDropZone
+                {<ImageDropZone
                     formikProps={{
                         values,
                         handleChange,
                         handleBlur,
                         setFieldValue,
-                        fieldValue:"profileAvatarUrl"
+                        fieldValue:"profilePhotoUrl"
                     }}
-                />*/}
+
+                <div className="form-group">
+                    <label htmlFor="profileBio">Bio</label>
+                    <div className="input-group">
+                        <div className="input-group-prepend">
+                            <div className="input-group-text">
+                                <FontAwesomeIcon icon="bio"/>
+                            </div>
+                        </div>
+                        <input
+                            className="form-control"
+                            id="profileBio"
+                            type="text"
+                            value={values.profileBio}
+                            placeholder="Enter Bio"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+
+                        />
+                    </div>
+
+                    {
+                        errors.profileBio && touched.profileBio && (
+                            <div className="alert alert-danger">
+                                {errors.profileBio}
+                            </div>
+                        )
+
+                    }
+                </div>
+
+
+
+                />
                 <div className="form-group">
                     <button className="btn btn-primary mb-2" type="submit">Submit</button>
                     <button

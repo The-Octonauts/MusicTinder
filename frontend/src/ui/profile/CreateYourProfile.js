@@ -3,8 +3,26 @@ import {Form, Image} from "react-bootstrap";
 import './CreateYourProfile.css'
 import {fetchAllPodcasts} from "../../store/podcast";
 import {useDispatch, useSelector} from "react-redux";
+import * as Yup from "yup";
+
+import {EditProfileForm} from "./EditProfileForm";
+
 
 export const CreateYourProfile = () => {
+    // const {profile} = props
+    //
+    // const validator = Yup.object().shape({
+    //     profilePhoto: Yup.image()
+    //         .profilePhoto("must submit photo")
+    //         .required('photo is required'),
+    //     profileBio: Yup.string()
+    //         .required("bio is required")
+    //         .min(8, "bio must be at least eight characters")
+    //     podcast: Yup.string()
+    //         .required("podcasts are required")
+    //
+    // });
+
 
 
     const dispatch = useDispatch()
@@ -20,10 +38,50 @@ export const CreateYourProfile = () => {
 console.log(podcasts)
 
 
+const genres = podcasts.map(podcast => podcast.podcastGenre)
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+const uniqueGenres = genres.filter(onlyUnique)
+
+    const filterPodcasts = (genre)=>{
+        podcasts.filter(podcast=>podcast.podcastGenre === genre)
+    }
+
+    // function submitEditedProfile (values, {resetForm, setStatus}) {
+    //
+    //     const submitCreateProfile = (createProfile) => {
+    //
+    //         if (values.profilePhoto !== undefined) {
+    //             httpConfig.post(`/apis/image-upload/`, values.profilePhoto)
+    //                 .then(reply => {
+    //                         let {message, type} = reply;
+    //
+    //                         if (reply.status === 200) {
+    //                             submitCreateProfile({...values, profilePhoto:message})
+    //                         } else {
+    //                             setStatus({message, type});
+    //                         }
+    //                     }
+    //                 );
+    //         } else {
+    //             submitCreateProfile(values);
+    //         }
+    //     }
+    //
+    // }
+    //
+
+
+
     return(
         <>
+<>
+            <EditProfileForm/>
+            </>
+
             <h1 className={"text-center my-md-5"}>Create Your Profile</h1>
-            {/*{podcasts.map(podcast => <h2>{podcast.podcastName}</h2>)}*/}
+
 
             <section>
                 <div className={"d-flex flex-row justify-content-center"}>
@@ -53,7 +111,7 @@ console.log(podcasts)
                             <Form.Group>
                                 <Form.Label>Genre</Form.Label>
                                 <Form.Select>
-                                    {podcasts.map(podcast => <option>{podcast.podcastGenre}</option>)}
+                                    {uniqueGenres.map(genre => <option>{genre}</option>)}
                                 </Form.Select>
                                 <Form.Select>
                                     {

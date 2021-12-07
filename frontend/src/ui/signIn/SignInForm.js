@@ -53,9 +53,9 @@ export const SignInForm = () => {
     const LoginRecommend = () => {
         return (
     <>
-        {(saved.savedProfileId !== null) ? (
-            < button href = "/recommend" > < /button>
-            ) : (
+        {/*{(saved.savedProfileId !== null) ? (*/}
+        {/*    < button href = "/recommend" > < /button>*/}
+        {/*    ) : (*/}
         <Button href="/create-your-profile">Set up profile</Button>
 
     ) }
