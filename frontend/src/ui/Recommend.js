@@ -10,6 +10,7 @@ import podpal from "../assets/PodPal.png";
 import "./recommend.css";
 import "./PodpalCards"
 import {SwipeButtons} from "./SwipeButtons";
+import {Chats} from "./Chats";
 
 // function LinkTab(props) {
 //     return (
@@ -83,17 +84,8 @@ const handleChange = (event, newValue) => {
                             <Card.Body>
                                 <Card.Title>Start Matching</Card.Title>
                                 <Container>
-                                    <Row>
-                                        <Col c> <img src={podpal} alt=" place holder"/>   </Col>
-                                        <Col> <h1>User Name </h1> <h4>BIO</h4> <p> quick example text to build on the card title and make up the bulk of
-                                            the card's content. </p> </Col>
-                                        <Col> <Button  variant="primary">Send Msg!</Button> </Col>
-                                    </Row>
+                                    <Chats/>
                                 </Container>
-                                <Card.Text className="p-5">
-                                    Matches will appear here once you start to Like people.  You can message them directly from here when you're ready to spark up the conversation.
-                                </Card.Text>
-                                <Button>Go somewhere</Button>
                             </Card.Body>
                         </Card>
 
