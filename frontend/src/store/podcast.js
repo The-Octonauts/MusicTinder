@@ -7,6 +7,7 @@ const podcastSlice = createSlice({
     initialState: [],
     reducers: {
         getAllPodcasts: (podcasts, action) => {
+            console.log('hi there', action.payload);
             return action.payload
         },
     },
