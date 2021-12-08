@@ -17,7 +17,7 @@ export async function getSavedMatches(selectedProfileId: string) : Promise<Array
         // const getProfileInfo = "SELECT * FROM profile WHERE BIN_TO_UUID(profileId)"
 
 
-        console.log('RESULTTEST',result);
+        console.log('TEST',result);
         return result[0] as Array<Show>
 
     } catch (error) {
