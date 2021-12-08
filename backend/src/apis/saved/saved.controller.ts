@@ -45,7 +45,8 @@ export async function getSavedMatchesTest(request : Request, response: Response,
         const {savedProfileId} = request.params
         console.log('request.params', request)
         const data  = await getSavedMatches(savedProfileId)
-        return response.json({status:200, message: request, data});
+        console.log('THE DATA INHERE', data)
+        return response.json({status:200, message: "You have matches", data});
     } catch(error) {
 
         return response.json({

@@ -4,21 +4,21 @@ import {ResultSetHeader, RowDataPacket} from "mysql2";
 import {Saved} from "../interfaces/Saved";
 import {Show} from "../interfaces/Podcast";
 
-export async function getSavedMatches(selectedProfileId: string) : Promise<any> {
+export async function getSavedMatches(selectedProfileId: string) : Promise<Array<Show>> {
+    //these are profile ids for testing
     // 'db605a6352f911ec83f90242ac180002'
-    // 'db605a6352f911ec83f90242ac180002'
+    // 6ef386c3-5398-11ec-8a95-0242ac190002
     try {
         const mySqlConnection = await connect()
-        const mySqlQuery = "SELECT DISTINCT savedProfileId FROM saved WHERE savedPodcastId IN (SELECT savedPodcastId FROM saved WHERE savedProfileId='db605a6352f911ec83f90242ac180002') AND savedProfileId != 'db605a6352f911ec83f90242ac180002'"
+        const mySqlQuery = "SELECT DISTINCT  BIN_TO_UUID(savedProfileId) FROM saved WHERE  BIN_TO_UUID(savedPodcastId) IN (SELECT  BIN_TO_UUID(savedPodcastId) FROM saved WHERE savedProfileId=UUID_TO_BIN(:selectedProfileId)) AND savedProfileId != UUID_TO_BIN(:selectedProfileId)"
+        const result = await mySqlConnection.execute(mySqlQuery, {selectedProfileId}) as RowDataPacket[]
 
-        // const [result]= await mySqlConnection.execute(mySqlQuery, saved) as [ResultSetHeader, RowDataPacket]
-        const [result] = await mySqlConnection.execute(mySqlQuery, {selectedProfileId})
+        //loop through the result list of profiles, and retrieve the profile information by those ids.
+        // const getProfileInfo = "SELECT * FROM profile WHERE BIN_TO_UUID(profileId)"
 
-        console.log('result',result);
-        console.log('hey there', mySqlQuery);
-        // return result
-        // return "HELLOOOOOOOOOOOO"
-        return result
+
+        console.log('RESULTTEST',result);
+        return result[0] as Array<Show>
 
     } catch (error) {
         throw error

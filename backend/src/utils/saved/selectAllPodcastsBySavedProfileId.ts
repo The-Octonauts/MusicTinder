@@ -10,10 +10,9 @@ export async function selectAllPodcastsBySavedProfileId(savedProfileId: string):
         const mysqlQuery: string = "SELECT BIN_TO_UUID(savedPodcastId) as savedPodcastId, BIN_TO_UUID(savedProfileId) as savedProfileId  FROM `saved` WHERE savedProfileId = UUID_TO_BIN(:savedProfileId)"
         const result = await mysqlConnection.execute(mysqlQuery, {savedProfileId}) as RowDataPacket[]
 
-
         return result[0] as Array<Show>
     }  catch (error) {
-        console.log(error)
+        console.log('ITSERRORED', error)
         throw error
     }
 }
