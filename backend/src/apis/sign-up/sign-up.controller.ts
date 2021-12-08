@@ -24,7 +24,7 @@ export async function signupProfileController (request: Request, response: Respo
         const {profileEmail, profilePassword} = request.body;
         const profileHash = await setHash(profilePassword);
         const profileActivationToken = setActivationToken();
-        const profilePhotoUrl ="http://www.fillmurray.com/100/150"
+        const profilePhotoUrl =""
         const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}/activation/${profileActivationToken}`
         console.log(profileActivationToken);
 

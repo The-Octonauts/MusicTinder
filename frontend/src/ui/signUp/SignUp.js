@@ -1,12 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import {LinkContainer} from "react-router-bootstrap"
-import {SignUpModal} from "../signUp/signUpModal";
+import {SignUpModal} from "./signUpModal";
 import {Container} from "react-bootstrap";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../store/auth";
 

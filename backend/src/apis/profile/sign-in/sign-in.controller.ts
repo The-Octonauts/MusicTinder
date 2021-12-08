@@ -20,10 +20,10 @@ export async function signInController(request: Request, response: Response, nex
             {session: false},
             async (err: any, passportUser: Profile) => {
                 console.log(passportUser)
-                const {profileId, profilePhotoId, profilePhotoUrl, profileEmail, profileActivationToken, profileHash } = passportUser;
+                const {profileId, profilePhotoId, profilePhotoUrl, profileEmail } = passportUser;
                 // @ts-ignore
                 const signature: string = uuid();
-                const authorization: string = generateJwt({profileId, profilePhotoId, profilePhotoUrl, profileEmail, profileActivationToken, profileHash
+                const authorization: string = generateJwt({profileId, profilePhotoId, profilePhotoUrl, profileEmail
                 }, signature);
 
                 const signInFailed = (message: string) => response.json({

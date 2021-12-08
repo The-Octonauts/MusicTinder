@@ -9,11 +9,14 @@ export const EditProfileForm = (props) => {
     const {profile} = props
 
     const validationObject = Yup.object().shape({
-        profileBIo: Yup.string()
+        profileBio: Yup.string()
+            .required("Required")
             .min(1,"must be longer than 1 character")
         .max(1000,"Bio to long"),
-        profilePhotoUrl: Yup.mixed(),
-
+        profilePhotoUrl: Yup.mixed()
+            .required("Required"),
+        podcast: Yup.string()
+        .required("Required"),
 
     });
 

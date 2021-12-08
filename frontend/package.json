@@ -58,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "prop-types": "^15.7.2",
     "react-dropzone": "^11.4.2"
   }
 }

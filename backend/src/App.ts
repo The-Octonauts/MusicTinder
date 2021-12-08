@@ -13,6 +13,7 @@ import {signoutRoute} from "./apis/sign-out/sign-out.route";
 import podcastRouter from "./apis/podcast/podcast.route";
 import {savedRouter} from "./apis/saved/saved.route";
 import {swipeRouter} from "./apis/swipe/swipe.route";
+import {ProfileRoute} from "./apis/profile/profile.route";
 
 
 // The following class creates the app and instantiates the server
@@ -62,6 +63,7 @@ export class App {
         this.app.use('/apis/podcast',podcastRouter );
         this.app.use('/apis/saved' , savedRouter);
         this.app.use('/apis/swipe' , swipeRouter);
+        this.app.use('/apis/profile', ProfileRoute)
 
     }
 
