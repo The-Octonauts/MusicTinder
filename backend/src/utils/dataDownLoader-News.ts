@@ -27,7 +27,8 @@ function dataDownLoaderNews() : Promise<any> {
 		try {
 
 			const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=1WErgoXiZwgctkHLzqU6nf%2C3IM0lmZxpFAY7CwMuv9H4g%2C2mTUnDkuKUkhiueKcVWoP0%2C4Kbsy61zJSzPxNZZ3PKbXl%2C6BRSvIBNQnB68GuoXJRCnQ%2C0KxdEdeY2Wb3zr28dMlQva%2C3fQkNGzE1mBF1VrxVTY0oo%2C2HQ0xANSYpBvxvsEMuYxP9%2C3YMFdNqoNtVcCBKSUvjr8n%2C4sftHO603JaFqpuQBEZReL",
-				{headers: {Authorization: "Bearer " + "BQAi-MbaOGbz0r02Zq2ANTTugsTNLg14wz2UGxemlUglH5GC3OAFsWaREdmtV9zGNAVLkGy6VG6zy8BL0HrEjuu2hy6e6KPcr5nZvL-qt81ZEkpuWbgkoqo1fHRYgQuVtywaZtrH1L08MahO6cIkfINx2kkoWsjjT5C0MlziHcZVWqXommzAd9ZTFGuRAV1l2W2qGK_7QBxx15DKVg6Hezq98sydzw"}})
+				{headers: {Authorization: "Bearer " + "BQCdlsZriMR3ms5HHQzFVSEz4RT7m3nqFY0vZrds5JG-iaazR6qB9cGlHr86IwA8HLmExLIsKRd4SOVRlcbEUqrbqsWHKRsYW1CcVpmdlLyx8I-BySDl2aXtxEhLzX094N0O6MFUU6vTTecsvwKY1VxamQ1Tu2RmC6xvu01rUcranP86bAPe9RBw9SUhkMFHcXlNkUFA1hj1EUEsFI36tWONWpWW0t0sBGt7Ng"}})
+
 			/*console.log(data.shows[5].name)*/
 
 			// @ts-ignore
@@ -36,7 +37,7 @@ function dataDownLoaderNews() : Promise<any> {
 					podcastId: uuid(),
 					podcastName: show.name,
 					podcastDescription: show.description,
-					podcastImage: show.images[1],
+					podcastImage: show.images[2].url,
 					podcastGenre: "news"
 				}
 				console.log(insertShow(createShows))
