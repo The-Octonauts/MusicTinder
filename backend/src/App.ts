@@ -14,6 +14,7 @@ import podcastRouter from "./apis/podcast/podcast.route";
 import {savedRouter} from "./apis/saved/saved.route";
 import {swipeRouter} from "./apis/swipe/swipe.route";
 import {ProfileRoute} from "./apis/profile/profile.route";
+import {ImageUploadRouter} from "./apis/image-upload/image-upload.route";
 
 
 // The following class creates the app and instantiates the server
@@ -64,7 +65,7 @@ export class App {
         this.app.use('/apis/saved' , savedRouter);
         this.app.use('/apis/swipe' , swipeRouter);
         this.app.use('/apis/profile', ProfileRoute)
-
+        this.app.use('/apis/image-upload', ImageUploadRouter)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
