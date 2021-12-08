@@ -95,7 +95,7 @@ const handleChange = (event, newValue) => {
                     <Col>
                         <div>
                             <PodpalCards/>
-                            <SwipeButtons/>
+                            {/*<SwipeButtons/>*/}
                         </div>
                     </Col>
 

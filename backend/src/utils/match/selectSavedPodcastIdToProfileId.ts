@@ -5,7 +5,7 @@ import {Saved} from "../interfaces/Saved";
 
 
 
-export async function selectSavedPodcastIdToProfileId (saved: Profile): Promise<Profile|null> {
+export async function selectSavedPodcastIdToProfileId (saved: Profile): Promise<Saved|null> {
     try {
         const mysqlConnection = await connect();
         const mysqlQuery: string = "SELECT DISTINCT profileId FROM saved WHERE podcastId In (SELECT podcastID FROM saved Where profileId=25)AND profileId != 25"
