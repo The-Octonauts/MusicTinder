@@ -9,6 +9,7 @@ import {Formik, Form, Field} from "formik";
 import {SignUpModal} from "./signUp/signUpModal";
 import {SignInForm} from "./signIn/SignInForm";
 import { SignOutComponent} from "./SignOut/SignOut";
+import { Typography } from "@material-ui";
 
 export const FontLink = () => {
     return(
