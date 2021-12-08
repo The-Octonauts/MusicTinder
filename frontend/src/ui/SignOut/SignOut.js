@@ -12,7 +12,7 @@ export const SignOutComponent = () => {
             if (reply.status === 200) {
                 window.localStorage.removeItem('authorization')
                 dispatch(getAuth(null))
-                window.location = '/'
+                window.location = '/login'
 
             }
         })
