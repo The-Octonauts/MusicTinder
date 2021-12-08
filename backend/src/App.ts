@@ -3,12 +3,12 @@ import morgan from 'morgan'
 // Routes
 import { indexRoute } from './apis/index.routes'
 import {signupRoute} from "./apis/sign-up/sign-up.route";
-import {signinRouter} from "./apis/profile/sign-in/sign-in.route";
+import {signinRouter} from "./apis/sign-in/sign-in.route";
 const session = require("express-session");
 const MemoryStore = require('memorystore')(session);
 import csrf from "csurf";
 import passport = require('passport');
-import {passportStrategy} from "./apis/profile/sign-in/sign-in.controller";
+import {passportStrategy} from "./apis/sign-in/sign-in.controller";
 import {signoutRoute} from "./apis/sign-out/sign-out.route";
 import podcastRouter from "./apis/podcast/podcast.route";
 import {savedRouter} from "./apis/saved/saved.route";
@@ -64,7 +64,6 @@ export class App {
         this.app.use('/apis/saved' , savedRouter);
         this.app.use('/apis/swipe' , swipeRouter);
         this.app.use('/apis/profile', ProfileRoute)
-
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port

@@ -1,4 +1,4 @@
 export interface Saved {
-    savedPodcastId: string | null;
-    savedProfileId: string | null;
+    savedPodcastId: string;
+    savedProfileId: string;
 }

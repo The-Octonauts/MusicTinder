@@ -1,0 +1,22 @@
+.swipeButtons {
+    position: fixed;
+    bottom: 35vh;
+    right: 66vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.swipeButtons .MuiIconButton-root {
+    background-color: white;
+    box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
+}
+
+.likeButton {
+    padding: 1vw !important;
+    color: mediumspringgreen !important;
+}
+
+.dislikeButton {
+    padding: 1vw !important;
+    color: red !important;
+}

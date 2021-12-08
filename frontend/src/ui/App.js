@@ -31,10 +31,8 @@ export const App = (store) => (
 
                 <Route component={FourOhFour} />
                 {/*<Route exact path="/profile/:profileHandle" component={Profile} />*/}
-
-
             </Switch>
-            <Footer/>
+            {/*<Footer/>*/}
         </BrowserRouter>
         </Provider>
     </>

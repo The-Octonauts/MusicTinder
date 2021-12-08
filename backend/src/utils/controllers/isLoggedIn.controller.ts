@@ -1,5 +1,5 @@
 import {NextFunction, Request, Response} from 'express';
-import {JwtPayload, verify, VerifyErrors} from 'jsonwebtoken';
+import {verify, VerifyErrors} from 'jsonwebtoken';
 import {Status} from '../interfaces/Status';
 import {Profile} from '../interfaces/Profile';
 import {IncomingHttpHeaders} from 'http';
@@ -13,7 +13,7 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
 
     const signature = (request: Request): string => request.session?.signature ?? 'no signature'
 
-    const isSessionActive = (isProfileActive: Profile | undefined): boolean => !!isProfileActive;
+    const isSessionActive = (isProfileActive: Profile | undefined): boolean => isProfileActive ? true : false;
 
    /* const getJwtTokenFromHeader = (headers: IncomingHttpHeaders): string | undefined => {
 
@@ -22,7 +22,6 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
 
 
     const unverifiedJwtToken: string | undefined = request.headers['authorization'];
-
 
    /* const isJwtValid: JwtPayload | string | boolean = unverifiedJwtToken
       ? verify(*/
@@ -47,17 +46,11 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
             return false
         }
         const result: unknown = verify(
-<<<<<<< HEAD
-=======
-
->>>>>>> upload-image
             unverifiedJwtToken,
             signature(request),
             {maxAge: '3hr'},
             (error: VerifyErrors | null): boolean => error ? false : true
         ) as unknown
-
-<<<<<<< HEAD
       : false;
 
 
@@ -88,6 +81,21 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
      }
 
 
+    // const isJwtValid = (unverifiedJwtToken: string | undefined): boolean => {
+    //     if (unverifiedJwtToken === undefined) {
+    //         return false
+    //     }
+    //     const result: unknown = verify(
+    //         unverifiedJwtToken,
+    //         signature(request),
+    //         {maxAge: '3hr'},
+    //         (error: VerifyErrors | null): boolean => error ? false : true
+    //     ) as unknown
+    //
+    //     console.log(result)
+    //     return result as boolean
+    //
+    // }
 
 
     return isJwtValid(unverifiedJwtToken) && isSessionActive(sessionProfile(request)) ? next() : response.json(status);

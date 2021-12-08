@@ -1,6 +1,5 @@
 .cardHeader {
-    background-color: black !important;
-    background-image: linear-gradient(to right, yellowgreen, greenyellow);
+    background-color: #0166AB;
 }
 
 .text-absolute {
@@ -11,6 +10,10 @@
     left: 10px;
     width: 200px;
     height: 100px;
+}
+
+.cardBody {
+    height: 45vw;
 }
 
 /*.img-relative {

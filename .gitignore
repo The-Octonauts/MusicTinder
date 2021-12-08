@@ -2,7 +2,7 @@
 */node_modules
 .idea
 */.Ds_Store
-*/setupProxy.js
+
 /project.env
 */.pnp
 */.pnp.js

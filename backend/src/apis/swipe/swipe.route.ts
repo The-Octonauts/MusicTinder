@@ -11,3 +11,4 @@ export const swipeRouter = Router();
 swipeRouter.route('/')
     .post(isLoggedIn, postSwipeController);
 
+
