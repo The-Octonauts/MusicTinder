@@ -10,8 +10,6 @@ import {Navigation} from './shared/Navigation';
 import {Footer} from "./shared/Footer";
 import {CreateYourProfile} from "./profile/CreateYourProfile";
 import {Provider} from "react-redux";
-import {Profile} from "./profile/Profile";
-import {SignUp} from "./signUp/SignUp";
 
 
 export const App = (store) => (
@@ -22,12 +20,15 @@ export const App = (store) => (
             <Navigation/>
             <Switch>
 
-                <Route exact path='/create-your-profile' component={CreateYourProfile} />
                 <Route exact path='/login' component={login}/>
+                <Route exact path='/create-your-profile' component={CreateYourProfile} />
                 <Route exact path='/recommend' component={Recommend} />
-                <Route exact path='/' component={Home} />
+                <Route exact path='/' component={login} />
+
+            {/*    <Route exact path='/login' component={SignOut}/>*/}
+
                 <Route component={FourOhFour} />
-                {/*<Route exact path="/profile/:profileHandle" component={Profile} />*/}
+
 
 
             </Switch>

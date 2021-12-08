@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {httpConfig} from "../../utils/httpConfig";
 import {Formik} from "formik";
 import * as Yup from "yup";
@@ -6,8 +6,10 @@ import {SignInFormContent} from "./SignInFormContent";
 import {useDispatch, useSelector} from "react-redux";
 import jwt_decode from "jwt-decode";
 import {fetchAuth, getAuth} from "../../store/auth";
+import saved, { fetchAllSavedPodcasts } from "../../store/saved"
 import Button from "react-bootstrap/Button";
 
+saved.savedProfileId = undefined;
 export const SignInForm = () => {
 
     const dispatch = useDispatch()
@@ -48,15 +50,23 @@ export const SignInForm = () => {
         dispatch(fetchAuth())
 
    }
+    const hasSavedPodcasts = useSelector(
+        (state) => state.saved.hasSavedPodcasts
+    );
+
    useEffect(effects)
 
     const LoginRecommend = () => {
         return (
     <>
-        {/*{(saved.savedProfileId !== null) ? (*/}
-        {/*    < button href = "/recommend" > < /button>*/}
-        {/*    ) : (*/}
-        <Button href="/create-your-profile">Set up profile</Button>
+
+        {(hasSavedPodcasts !== null) ? (
+            <Button href = "/recommend" >Start Matching< /Button>
+            ) : (
+        <Button href="/create-your-profile">Set Up Profile</Button>
+
+
+
 
     ) }
     </>

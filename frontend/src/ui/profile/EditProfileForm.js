@@ -15,7 +15,7 @@ export const EditProfileForm = (props) => {
         .max(1000,"Bio to long"),
         profilePhotoUrl: Yup.mixed()
             .required("Required"),
-        podcast: Yup.string()
+        podcastIds: Yup.array()
         .required("Required"),
 
     });
