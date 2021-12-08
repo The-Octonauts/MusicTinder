@@ -56,5 +56,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prop-types": "^15.7.2",
+    "react-dropzone": "^11.4.2"
   }
 }

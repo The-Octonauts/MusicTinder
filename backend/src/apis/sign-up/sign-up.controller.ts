@@ -19,13 +19,12 @@ import Client from 'mailgun.js/dist/lib/client';
 export async function signupProfileController (request: Request, response: Response): Promise<Response|undefined> {
     try {
         const mailgun: Mailgun = new Mailgun(formData)
-        const mailgunClient: Client = mailgun.client({username: "api", key: <string>process.env.MAILGUN_API_KEY,
-            public_key: process.env.MAILGUN_PUBLIC_KEY || 'pubkey-37a376ba3bab3ee8bc632b5ec301b5e5'})
+        const mailgunClient: Client = mailgun.client({username: "api", key: <string>process.env.MAILGUN_API_KEY})
 
         const {profileEmail, profilePassword} = request.body;
         const profileHash = await setHash(profilePassword);
         const profileActivationToken = setActivationToken();
-        const profilePhotoUrl ="http://www.fillmurray.com/100/150"
+        const profilePhotoUrl =""
         const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}/activation/${profileActivationToken}`
         console.log(profileActivationToken);
 
@@ -37,7 +36,7 @@ export async function signupProfileController (request: Request, response: Respo
 
         const mailgunMessage = {
             from:`Mailgun Sandbox<postmaster@${process.env.MAILGUN_DOMAIN}>`,
-            to: profileEmail,
+            to: [profileEmail],
             subject: "Testing some Mailgun ",
             html: "<h1>message</h1>"
 
@@ -53,7 +52,9 @@ export async function signupProfileController (request: Request, response: Respo
         await insertProfile (profile)
 // console.log(process.env.MAILGUN_DOMAIN)
 //         console.log(mailgunMessage)
-        // await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
+
+
+        await mailgunClient.messages.create(<string>process.env.MAILGUN_DOMAIN, mailgunMessage)
 
         // const emailComposer: MailComposer = new MailComposer(mailgunMessage)
         //

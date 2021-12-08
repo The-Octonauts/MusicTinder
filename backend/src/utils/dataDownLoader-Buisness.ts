@@ -27,7 +27,9 @@ function dataDownLoader() : Promise<any> {
         try {
             const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=3oEPsPKDhPVoNNL7pH5db6%2C6ll0MwobDt1JW9gYaOONEo%2C7irxBvxNqGYnUdFo1c2gMc%2C5qSUyCrk9KR69lEiXbjwXM%2C6KHwEnVRZmS9tmxkyfqUMD%2C6E709HRH7XaiZrMfgtNCun%2C0b5qzMiw22wHBfe1x9LfaQ%2C4FYpq3lSeQMAhqNI81O0Cn%2C5exfRPDNCBHmntEkJrlLmX%2C6SZVsPIxPfVs6aavqM1peY",
 
+
                 {headers: {Authorization: "Bearer " + "BQDS4uHfyVjpHCRVoZnfqB95czz8AVch0cZiXTkAC_Rb2ohi1V2mB6SkxWFtsqcX4b1zcVAL4K-5xp3t8-sYSO9Tzvtn9pCtCncRSJkyGjymESGDb2xuuNDarVRBcn6EJe2Akzvs9_C8El_RCxtrCbceyNVXzz5DhtGPRZi_yo24ocLq9IiZjqHvt7QF96Q9GHmmNcjuj8DzMSreU_Ek-rMqY6U_RD46TMOuuQ"}})
+
 
             /*console.log(data.shows[5].name)*/
 
