@@ -59,17 +59,14 @@ export const SignInForm = () => {
     const LoginRecommend = () => {
         return (
     <>
-<<<<<<< HEAD
+
         {(hasSavedPodcasts !== null) ? (
             <Button href = "/recommend" >Start Matching< /Button>
             ) : (
         <Button href="/create-your-profile">Set Up Profile</Button>
-=======
-        {/*{(saved.savedProfileId !== null) ? (*/}
-        {/*    < button href = "/recommend" > < /button>*/}
-        {/*    ) : (*/}
-        <Button href="/create-your-profile">Set up profile</Button>
->>>>>>> aarons-createpage
+
+
+
 
     ) }
     </>
