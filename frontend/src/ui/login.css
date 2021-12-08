@@ -17,3 +17,9 @@
 .font-link {
     font-family: 'Raleway', bold;
 }
+
+.stroke {
+    font-size: 3em;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}

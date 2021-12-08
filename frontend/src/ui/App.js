@@ -21,11 +21,14 @@ export const App = (store) => (
         <BrowserRouter>
             <Navigation/>
             <Switch>
-                <Route exact path='/signUp' component={SignUp}/>
-                <Route exact path='/create-your-profile' component={CreateYourProfile} />
+                {/*<Route exact path='/signUp' component={SignUp}/>*/}
                 <Route exact path='/login' component={login}/>
+                <Route exact path='/create-your-profile' component={CreateYourProfile} />
                 <Route exact path='/recommend' component={Recommend} />
-                <Route exact path='/' component={Home} />
+               {/* <Route exact path='/' component={Home} />*/}
+
+            {/*    <Route exact path='/login' component={SignOut}/>*/}
+
                 <Route component={FourOhFour} />
                 {/*<Route exact path="/profile/:profileHandle" component={Profile} />*/}
 
