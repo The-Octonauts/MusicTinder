@@ -8,7 +8,8 @@ import { styled } from '@mui/material/styles';
 import {PodpalCards} from "./PodpalCards";
 import "./recommend.css";
 import "./PodpalCards"
-// import {SwipeButtons} from "./SwipeButtons";
+import {SwipeButtons} from "./SwipeButtons";
+
 import {Chats} from "./Chats";
 
 // function LinkTab(props) {
@@ -93,8 +94,12 @@ const handleChange = (event, newValue) => {
                     </Col>
                     <Col>
                         <div>
+
+
                             <PodpalCards/>
-                            {/*<SwipeButtons/>*/}
+
+
+                            <SwipeButtons/>
                         </div>
                     </Col>
 
