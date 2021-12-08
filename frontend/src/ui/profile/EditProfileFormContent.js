@@ -178,7 +178,9 @@ console.log(uniqueGenres)
                                 {podcast.podcastName}
                         </label>
                             </Col>))}
+
                         </Row>
+
                     <div>Picked: {values.podcastIds}</div>
                     </div>
     </Container>
