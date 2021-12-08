@@ -21,7 +21,7 @@ export const App = (store) => (
         <BrowserRouter>
             <Navigation/>
             <Switch>
-                <Route exact path='/signUp' component={SignUp}/>
+
                 <Route exact path='/create-your-profile' component={CreateYourProfile} />
                 <Route exact path='/login' component={login}/>
                 <Route exact path='/recommend' component={Recommend} />

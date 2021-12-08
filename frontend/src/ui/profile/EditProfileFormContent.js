@@ -1,8 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {ImageDropZone} from "../shared/ImageDropZone";
-import {Field, Form} from "formik";
-import {Formik} from "formik";
+import {Field} from "formik";
 import {FormDebugger} from "../../utils/FormDebugger";
 
 
@@ -30,21 +29,10 @@ export const EditProfileFormContent = (props) => {
 
 
 
-                <div>
-                    <h1>Create Profile</h1>
-                    <Formik
-                        initialValues={{
-                            profilePhoto: '',
-                            profileBio:'',
-                            podcast:'',
-                        }}
-                        onSubmit={async (values) => {
-                            await new Promise((r) => setTimeout(r, 500));
-                            alert(JSON.stringify(values, null, 2));
-                        }}
-                    >
-                        {({ values }) => (
-                            <Form>
+
+                    <h1>Create Profile!</h1>
+
+
 
                                 {/*<div className="form-group">*/}
                                 {/*    <label htmlFor="profilePhotoUrl">ProfilePhoto</label>*/}
@@ -149,17 +137,14 @@ export const EditProfileFormContent = (props) => {
                                     </button>
                                 </div>
                                 <FormDebugger {...props} />
-                            </Form>
-                        )}
-                    </Formik>
-                </div>
-                );
+                            </form>
 
 
-{/*
-                <FormDebugger {...props} />
-*/}
-            </form>
+
+
+
+
+
 
             {
                 status && (<div className={status.type}>{status.message}</div>)
