@@ -6,6 +6,9 @@ import "./PodpalCards.css"
 import Button from "@mui/material/Button";
 import {Collapse} from "@mui/material";
 import profile from "../store/profile";
+import saved from "../store/saved";
+import {fetchMatchedProfilesByProfileId} from "../store/matches";
+import {useDispatch, useSelector} from "react-redux";
 
 
 export const PodpalCards = (props) => {
@@ -53,13 +56,13 @@ export const PodpalCards = (props) => {
 
     // const dispatch = useDispatch()
     // const initialEffects = () => {
-    //     dispatch(fetchAllPodcasts())
+    //     dispatch(fetchMatchedProfilesByProfileId())
     // }
     // React.useEffect(initialEffects, [dispatch])
     //
     // // Render our misquotes constant - before we have our data, render the skeleton.
     // // After we have our data, render the full object with our data.
-    // const people = useSelector((state) => state.people ? state.people : [])
+    // const matches = useSelector((state) => state.profile ? state.profilePhotoUrl : [])
 
     const [open, setOpen] = useState(false);
 
@@ -68,19 +71,19 @@ export const PodpalCards = (props) => {
         <>
             <div>
                 <div className={"podpalCards-Container"}>
-                {matches.map(people =>
+                {matches.map(profile =>
                     (<TinderCard
                             className={"swipe"}
-                            key={people.name}
+                            // key={people.name}
                             preventSwipe={['up', 'down']}>
                             <div className="card"
-                                // style={{backgroundImage: `url(${profile.profilePhotoUrl})`}}
-                                 style={{backgroundImage: `url(${profile.profilePhotoUrl})`}}>
-                                <h2>{people.name}</h2>
+                                 style={{backgroundImage: `url(${profile.profilePhotoUrl})`}}
+                            >
+                                <h2>{profile.profileEmail}</h2>
                                 <Button variant="text" className="bioButton" onClick={() => setOpen(!open)} aria-controls="collapse-bio" aria-expanded={open}>Bio</Button>
                                 <Collapse in={open}>
                                     <div id="collapse-bio">
-                                    <TinderCard>{people.bio}</TinderCard>
+                                    <p>{profile.profileBio}</p>
                                     </div>
                                 </Collapse>
                             </div>
