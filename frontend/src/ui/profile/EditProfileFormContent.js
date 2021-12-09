@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Image} from "react-bootstrap";
-
+import {Link} from "react-router-dom"
 
 
 export const EditProfileFormContent = (props) => {
@@ -200,7 +200,8 @@ console.log(uniqueGenres)
                                     >Reset
                                     </button>
                                 </div>
-                                <FormDebugger {...props} />
+                                {/*<FormDebugger {...props} />*/}
+                                <Link to="/recommend" className="btn btn-success">Home</Link>
                             </form>
 
 
