@@ -12,7 +12,7 @@ export async function selectAllPodcastsBySavedProfileId(savedProfileId: string):
 
         return result[0] as Array<Show>
     }  catch (error) {
-        console.log('ITSERRORED', error)
+        console.log('ERROR', error)
         throw error
     }
 }
