@@ -4,12 +4,14 @@ import {Status} from "../../utils/interfaces/Status";
 import {selectWholeProfileByProfileId} from "../../utils/profile/selectWholeProfileByProfileId";
 import {updateProfile} from "../../utils/profile/updateProfile";
 import {selectPartialProfileByProfileId} from "../../utils/profile/selectPartialProfileByProfileId";
+import {insertSavedPodcast} from "../../utils/saved/insertSavedPodcast";
 
 
 export async function putProfileController(request: Request, response: Response) : Promise<Response>{
+    console.log(request.body, "request.body")
     try {
         const {profileId} = request.params
-        const {profileEmail, profilePhotoUrl, } = request.body
+        const {profileEmail, profilePhotoUrl, profileBio,podcastIds } = request.body
         const profile = <Profile>request.session.profile
         const profileIdFromSession = <string>profile.profileId
 
@@ -17,6 +19,11 @@ export async function putProfileController(request: Request, response: Response)
             const previousProfile: Profile = await selectWholeProfileByProfileId(<string>partialProfile.profileId) as Profile
             const newProfile: Profile = {...previousProfile, ...partialProfile}
             await updateProfile(newProfile)
+
+            for(const podcastId of podcastIds){
+                await insertSavedPodcast({savedPodcastId: podcastId, savedProfileId: profileId})
+            }
+
             return response.json({status: 200, data: null, message: "Profile successfully updated"})
         }
 
@@ -25,7 +32,7 @@ export async function putProfileController(request: Request, response: Response)
         }
 
         return profileId === profileIdFromSession
-            ? performUpdate({profileId, profilePhotoUrl, profileEmail})
+            ? performUpdate({profileId, profilePhotoUrl, profileEmail, profileBio})
             : updateFailed("you are not allowed to perform this action")
     }   catch (error) {
         // @ts-ignore

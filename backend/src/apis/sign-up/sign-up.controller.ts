@@ -47,7 +47,8 @@ export async function signupProfileController (request: Request, response: Respo
             profileEmail,
             profileHash,
             profilePhotoId: null,
-            profilePhotoUrl
+            profilePhotoUrl,
+            profileBio: null,
         };
         await insertProfile (profile)
 // console.log(process.env.MAILGUN_DOMAIN)

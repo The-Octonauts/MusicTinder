@@ -5,9 +5,11 @@ export interface Profile {
     profileEmail: string,
     profileHash: string,
     profileActivationToken: string|null,
+    profileBio: string|null,
 }
 export interface PartialProfile {
     profileId: string|null,
     profilePhotoUrl: string,
     profileEmail: string,
+    profileBio: string|null,
 }

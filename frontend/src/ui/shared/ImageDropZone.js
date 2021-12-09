@@ -1,7 +1,10 @@
 import React, {useCallback} from 'react'
 import {useDropzone} from 'react-dropzone'
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import {Image} from "react-bootstrap";
 
-export function ImageDropZone({formikProps}) {
+export function ImageDropZone({formikProps, profilePicture}) {
 
     const onDrop = useCallback(acceptedFiles => {
 
@@ -18,6 +21,9 @@ export function ImageDropZone({formikProps}) {
     return (
         <div className="form-group" {...getRootProps()}>
             <div className="input-group input-group-lg">
+                <Row>
+                    <Col xs={3}>
+                <Image fluid src={profilePicture} alt="profile picture" />
                 <input
                     className="form-control-file"
                     accept="image/*"
@@ -30,6 +36,8 @@ export function ImageDropZone({formikProps}) {
                         <p>Drop the files here ...</p> :
                         <p>Drag 'n' drop some files here, or click to select files</p>
                 }
+                    </Col>
+                </Row>
             </div>
         </div>
     )
