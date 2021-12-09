@@ -5,8 +5,12 @@ import { Formik } from "formik";
 import { EditProfileFormContent } from './EditProfileFormContent'
 
 
+
+
 export const EditProfileForm = (props) => {
     const {profile} = props
+
+
 
     const validationObject = Yup.object().shape({
         profileBio: Yup.string()
@@ -21,7 +25,6 @@ export const EditProfileForm = (props) => {
     });
 
     function submitEditedProfile (values, {resetForm, setStatus}) {
-
         const submitUpdatedProfile = (updatedProfile) => {
             httpConfig.put(`/apis/profile/${profile.profileId}`, updatedProfile)
                 .then(reply => {
@@ -53,7 +56,13 @@ export const EditProfileForm = (props) => {
             submitUpdatedProfile(values);
         }
         // resetForm();
+
+
+
+
     }
+
+
 
     return (
         <Formik

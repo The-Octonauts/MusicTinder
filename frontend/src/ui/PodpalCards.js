@@ -7,7 +7,8 @@ import Button from "@mui/material/Button";
 import {Collapse} from "@mui/material";
 
 
-export function PodpalCards () {
+export const PodpalCards = (props) => {
+    const {matches} = props
 
     const [people, setPeople] = useState([
         {
@@ -66,7 +67,7 @@ export function PodpalCards () {
         <>
             <div>
                 <div className={"podpalCards-Container"}>
-                {people.map(people =>
+                {matches.map(people =>
                     (<TinderCard
                             className={"swipe"}
                             key={people.name}
