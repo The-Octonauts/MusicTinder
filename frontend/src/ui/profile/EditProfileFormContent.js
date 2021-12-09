@@ -8,6 +8,7 @@ import {fetchAllPodcasts} from "../../store/podcast";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import {Image} from "react-bootstrap";
 
 
 
@@ -55,20 +56,9 @@ export const EditProfileFormContent = (props) => {
 console.log(uniqueGenres)
 
 
-
-
-
-
-
-
-
-
-
-
-
     return (
         <>
-
+            <Container>
             <form onSubmit={handleSubmit}>
 
 
@@ -115,6 +105,7 @@ console.log(uniqueGenres)
                                         setFieldValue,
                                         fieldValue:"profilePhotoUrl"
                                     }}
+                                    profilePicture={values.profilePhotoUrl}
                                 />
 
 
@@ -165,25 +156,40 @@ console.log(uniqueGenres)
 
                 { uniqueGenres &&
 <>
-    <Container>
+
                     <div id="my-radio-group">select favorite podcast</div>
                     <div role="group" aria-labelledby="my-radio-group">
-                        <Row>
+                        <Row className={"justify-content-center"}>
 
-                        {  uniqueGenres.map(genre => filterPodcasts(genre).map(podcast=>
-                            <Col md="3">
-                            <label>
-                                <img src={podcast.podcastImage} alt={podcast.podcastName}/>
-                            <Field type="checkbox" name="podcastIds" value={podcast.podcastId} />
-                                {podcast.podcastName}
-                        </label>
-                            </Col>))}
+                        {  uniqueGenres.map(genre =>{
+                            return (
+                            <>
+                            <Col md={2}>
+                                <h4>{genre}</h4>
+                                <Container fluid>
+                                    <Row>
+                                {filterPodcasts(genre).map(podcast =>
+                                    <Col xs={12}>
+                                        <label>
+                                            <Image fluid  src={podcast.podcastImage} alt={podcast.podcastName}/>
+                                            <Field type="checkbox" name="podcastIds" value={podcast.podcastId}/>
+                                            {podcast.podcastName}
+                                        </label>
+                                    </Col>)
+                                }
+                                    </Row>
+</Container>
+
+                                </Col>
+                            </>
+
+                            )})}
 
                         </Row>
 
                     <div>Picked: {values.podcastIds}</div>
                     </div>
-    </Container>
+
 </> }
                                 <div className="form-group">
                                     <button className="btn btn-primary mb-2" type="submit">Submit</button>
@@ -207,7 +213,7 @@ console.log(uniqueGenres)
             {
                 status && (<div className={status.type}>{status.message}</div>)
             }
-
+            </Container>
         </>
 
 

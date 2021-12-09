@@ -36,7 +36,7 @@ function dataDownLoader() : Promise<any> {
                     podcastId: uuid(),
                     podcastName: show.name,
                     podcastDescription: show.description,
-                    podcastImage: show.images[2].url,
+                    podcastImage: show.images[1].url,
                     podcastGenre: "Health and Fitness"
                 }
                 console.log(insertShow(createShows))

@@ -14,7 +14,7 @@ export const uploadToCloudinary = (request : Request) : Promise<string> => {
     cloudinaryUtils.config({
         api_key: process.env.CLOUDINARY_KEY,
         api_secret: process.env.CLOUDINARY_SECRET,
-        cloud_name: "cnm-ingenuity-deep-dive-bootcamp"
+        cloud_name: "podpal"
     })
 
     return new Promise((resolve, reject):void => {
@@ -27,7 +27,10 @@ export const uploadToCloudinary = (request : Request) : Promise<string> => {
                 }
             }
         );
-        streamifier.createReadStream(request.file.buffer).pipe(cld_upload_stream);
+
+        if(request.file?.buffer) {
+            streamifier.createReadStream(request.file.buffer).pipe(cld_upload_stream);
+        }
     });
 
 }

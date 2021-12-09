@@ -28,7 +28,16 @@ export const App = (store) => (
             {/*    <Route exact path='/login' component={SignOut}/>*/}
 
                 <Route component={FourOhFour} />
+<<<<<<< HEAD
                 {/*<Route exact path="/profile/:profileHandle" component={Profile} />*/}
+=======
+
+                {/*<Route exact path="/profile/:profileHandle" component={Profile} />*/}
+
+
+
+
+>>>>>>> develop
             </Switch>
             {/*<Footer/>*/}
         </BrowserRouter>
