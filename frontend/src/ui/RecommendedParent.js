@@ -18,7 +18,6 @@ export const RecommendedParent = ({profile}) => {
     console.log('profile.profileId in recommended parent', profile.profileId)
     return(
         <>
-<h1>Recommended Parent</h1>
 
             {saved && <RecommendedCousin saved={saved}/>}
 
