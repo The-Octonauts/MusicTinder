@@ -5,12 +5,13 @@ import TinderCard from "react-tinder-card";
 import "./PodpalCards.css"
 import Button from "@mui/material/Button";
 import {Collapse} from "@mui/material";
+import profile from "../store/profile";
 
 
 export const PodpalCards = (props) => {
     const {matches} = props
 
-    const [people, setPeople] = useState([
+    /*const [people, setPeople] = useState([
         {
             name: "Jessie",
             url: "https://specials-images.forbesimg.com/imageserve/5f3f2b8d8a1a17a277d7abc5/960x0.jpg?fit=scale",
@@ -47,7 +48,7 @@ export const PodpalCards = (props) => {
             url: "https://st.depositphotos.com/1371851/1256/i/600/depositphotos_12560188-stock-photo-young-man.jpg",
             bio: "Hello I like to go out shooting and fishing. Taking long walks in the park is my guilty pleasure."
         },
-    ])
+    ])*/
 
 
     // const dispatch = useDispatch()
@@ -74,7 +75,7 @@ export const PodpalCards = (props) => {
                             preventSwipe={['up', 'down']}>
                             <div className="card"
                                 // style={{backgroundImage: `url(${profile.profilePhotoUrl})`}}
-                                 style={{backgroundImage: `url(${people.url})`}}>
+                                 style={{backgroundImage: `url(${profile.profilePhotoUrl})`}}>
                                 <h2>{people.name}</h2>
                                 <Button variant="text" className="bioButton" onClick={() => setOpen(!open)} aria-controls="collapse-bio" aria-expanded={open}>Bio</Button>
                                 <Collapse in={open}>

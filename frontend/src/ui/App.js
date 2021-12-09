@@ -10,6 +10,7 @@ import {Navigation} from './shared/Navigation';
 import {Footer} from "./shared/Footer";
 import {CreateYourProfile} from "./profile/CreateYourProfile";
 import {Provider} from "react-redux";
+import {RecommendedGrandParent} from "./RecommendedGrandParent";
 
 
 export const App = (store) => (
@@ -22,7 +23,7 @@ export const App = (store) => (
 
                 <Route exact path='/login' component={login}/>
                 <Route exact path='/create-your-profile' component={CreateYourProfile} />
-                <Route exact path='/recommend' component={Recommend} />
+                <Route exact path='/recommend' component={RecommendedGrandParent} />
                 <Route exact path='/' component={login} />
 
             {/*    <Route exact path='/login' component={SignOut}/>*/}

@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchAuth } from './auth'
-import { httpConfig } from '../../src/utils/httpConfig'
-import {getProfileByProfileId} from "./profile";
+import { httpConfig } from '../utils/httpConfig'
 
 
 
@@ -22,17 +20,23 @@ export const {setMatches} = matchesSlice.actions
 export default matchesSlice.reducer
 
 
-export const fetchMatchedProfilesByProfileId = (reply) => async (dispatch) => {
+export const fetchMatchedProfilesByProfileId = (saved) => async (dispatch) => {
+    console.log('saved!', saved)
 
-   const list = reply?.data.map(profile => {
-        const matchedId = profile["BIN_TO_UUID(savedProfileId)"]
-       const profileMatch = httpConfig.get(`/apis/profile/${matchedId}`).then(match => {
-           return match.data
-       })
-       return profileMatch
-    })
+    if(saved.length){
 
-    Promise.all(list).then(values => {
-        dispatch(setMatches(values))
-    })
+
+    let list = []
+    for(const profile of saved) {
+
+   // const list = reply?.data.map(profile => {
+        const matchedId = profile.savedProfileId
+       const profileMatch = await httpConfig.get(`/apis/profile/${matchedId}`)
+           list.push(profileMatch.data)
+
+
+    }
+
+        dispatch(setMatches(list))}
+
 };

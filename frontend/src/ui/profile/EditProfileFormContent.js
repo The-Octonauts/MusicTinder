@@ -199,8 +199,12 @@ console.log(uniqueGenres)
                                         disabled={!dirty || isSubmitting}
                                     >Reset
                                     </button>
+                                    <button href = '/recommend' >Start Matching< /button>
+
                                 </div>
+{/*
                                 <FormDebugger {...props} />
+*/}
                             </form>
 
 

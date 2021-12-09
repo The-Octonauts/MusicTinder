@@ -7,7 +7,7 @@ import {updateProfile} from "../../utils/profile/updateProfile";
 export async function putProfileController(request: Request, response: Response) : Promise<Response>{
     try {
         const {profileId} = request.params
-        const {profileEmail, profilePhotoUrl, } = request.body
+        const {profileEmail, profilePhotoUrl, profileBio, } = request.body
         const profile = <Profile>request.session.profile
         const profileIdFromSession = <string>profile.profileId
 
@@ -23,7 +23,7 @@ export async function putProfileController(request: Request, response: Response)
         }
 
         return profileId === profileIdFromSession
-            ? performUpdate({profileId, profilePhotoUrl, profileEmail})
+            ? performUpdate({profileId, profilePhotoUrl, profileEmail, profileBio,})
             : updateFailed("you are not allowed to perform this action")
     }   catch (error) {
         // @ts-ignore

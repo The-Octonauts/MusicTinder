@@ -14,6 +14,7 @@ import {httpConfig} from "../utils/httpConfig";
 import {useDispatch, useSelector} from "react-redux";
 import { fetchProfileByProfileId} from "../store/profile";
 import {fetchMatchedProfilesByProfileId, setMatches} from "../store/matches";
+import {fetchSavedBySavedProfileId} from "../store/saved";
 
 // function LinkTab(props) {
 //     return (
@@ -64,28 +65,31 @@ const StyledTab = styled((props) => <Tab {...props} />)(
     }),
 );
 
-export const Recommend = () => {
+export const Recommend = ({matches}) => {
+    console.log(matches)
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const dispatch = useDispatch()
-    const profile = useSelector(state => state.profile ? state.profile : null)
+   /* const dispatch = useDispatch()
+    const profile = useSelector(state => state.profile ? state.profile : [])
     const sideEffects = () => {
         dispatch(fetchProfileByProfileId())
 
-    }
+    }*/
     //TODO: this returns an array now, may be able to switchthis out for your dummy data matches below.
-    const matches1 = useSelector(state => state.matches ? state.matches : null)
+/*
+    const matches1 = useSelector(state => state.matches ? state.matches : [])
+*/
     //TODO: no idea why this array will not map
-    console.log('matches', matches1)
+   /* console.log('matches', matches1)*/
   /*  if(matches){
     matches.map(item => {
         console.log('item', item)
     }})*/
 
-    const [matches, setPeople] = useState([
+    /*const [matches, setPeople] = useState([
         {
             name: "Jessie",
             url: "https://specials-images.forbesimg.com/imageserve/5f3f2b8d8a1a17a277d7abc5/960x0.jpg?fit=scale",
@@ -122,13 +126,12 @@ export const Recommend = () => {
             url: "https://st.depositphotos.com/1371851/1256/i/600/depositphotos_12560188-stock-photo-young-man.jpg",
             bio: "Hello I like to go out shooting and fishing. Taking long walks in the park is my guilty pleasure."
         },
-    ])
+    ])*/
 
-    useEffect(sideEffects, [])
-    console.log('theprofile', profile)
-
+  /*
     useEffect(() => {
         if(profile){
+            dispatch(fetchSavedBySavedProfileId())
                 httpConfig.get(`/apis/saved/getProfileMatches/${profile.profileId}`)
                     .then(reply => {
                         dispatch(fetchMatchedProfilesByProfileId(reply))
@@ -147,7 +150,7 @@ export const Recommend = () => {
 
     }, [profile]);
     //this is a watcher for the profile in the state.  When the profile updates this useEffect will run
-
+*/
 
     return (
         <>
@@ -176,7 +179,9 @@ export const Recommend = () => {
                     <Col>
                         <div>
 
-                            <PodpalCards matches={matches}/>
+
+                            {matches && <PodpalCards matches={matches}/>}
+
 
                             {/*<SwipeButtons/>*/}
                         </div>
