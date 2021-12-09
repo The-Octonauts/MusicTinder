@@ -26,7 +26,9 @@ function dataDownLoader() : Promise<any> {
     async function downloadShow() {
         try {
             const {data} = await axios.get("https://api.spotify.com/v1/shows?market=ES&ids=3oEPsPKDhPVoNNL7pH5db6%2C6ll0MwobDt1JW9gYaOONEo%2C7irxBvxNqGYnUdFo1c2gMc%2C5qSUyCrk9KR69lEiXbjwXM%2C6KHwEnVRZmS9tmxkyfqUMD%2C6E709HRH7XaiZrMfgtNCun%2C0b5qzMiw22wHBfe1x9LfaQ%2C4FYpq3lSeQMAhqNI81O0Cn%2C5exfRPDNCBHmntEkJrlLmX%2C6SZVsPIxPfVs6aavqM1peY",
+
                 {headers: {Authorization: "Bearer " + "BQBIQiK6NwLufvDgxs6KabtTwYqNzINp7hEFeoNmnqKKeCKRG-DBFtv3zO63Sb7CIU5kQTBvGt8Ph2EQD68tAf8-O4pQc0HTfxHNxi4mqJLHAjbh7y0UfDXVXsSnCqC5D9d0jUrjeh6URoBIYte9Rh8EiIa8z9jix9ji73DKsOj4T7bbJsFlNEStu_8t4zrOmO6hO_XZunTcShqWGZBg7dBATXcGm7ZXXDNUSg"}})
+
             /*console.log(data.shows[5].name)*/
 
             // @ts-ignore
@@ -35,7 +37,7 @@ function dataDownLoader() : Promise<any> {
                     podcastId: uuid(),
                     podcastName: show.name,
                     podcastDescription: show.description,
-                    podcastImage: show.images[1],
+                    podcastImage: show.images[1].url,
                     podcastGenre: "business"
                 }
                 console.log(insertShow(createShows))

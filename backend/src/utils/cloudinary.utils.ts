@@ -27,7 +27,10 @@ export const uploadToCloudinary = (request : Request) : Promise<string> => {
                 }
             }
         );
-        streamifier.createReadStream(request.file.buffer).pipe(cld_upload_stream);
+
+        if(request.file?.buffer) {
+            streamifier.createReadStream(request.file.buffer).pipe(cld_upload_stream);
+        }
     });
 
 }

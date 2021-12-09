@@ -13,9 +13,9 @@ export const EditProfileForm = (props) => {
             .required("Required")
             .min(1,"must be longer than 1 character")
         .max(1000,"Bio to long"),
-        profilePhotoUrl: Yup.mixed()
-            .required("Required"),
-        podcast: Yup.string()
+        profilePhotoUrl: Yup.mixed(),
+            // .required("Required"),
+        podcastIds: Yup.array()
         .required("Required"),
 
     });
@@ -28,14 +28,14 @@ export const EditProfileForm = (props) => {
                     let {message, type} = reply;
 
                     if (reply.status === 200) {
-                        resetForm();
+                        // resetForm();
                     }
                     setStatus({message, type});
                     return (reply)
                 })
         };
 
-        if (values.profilePhotoUrl !== undefined) {
+        if (values.profilePhotoUrl != null) {
             httpConfig.post(`/apis/image-upload/`, values.profilePhotoUrl)
                 .then(reply => {
                         let {message, type} = reply;
@@ -47,9 +47,12 @@ export const EditProfileForm = (props) => {
                         }
                     }
                 );
+
         } else {
+
             submitUpdatedProfile(values);
         }
+        // resetForm();
     }
 
     return (

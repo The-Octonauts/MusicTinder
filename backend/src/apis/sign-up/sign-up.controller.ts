@@ -24,7 +24,7 @@ export async function signupProfileController (request: Request, response: Respo
         const {profileEmail, profilePassword} = request.body;
         const profileHash = await setHash(profilePassword);
         const profileActivationToken = setActivationToken();
-        const profilePhotoUrl =""
+        const profilePhotoUrl =null
         const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}/activation/${profileActivationToken}`
         console.log(profileActivationToken);
 
@@ -47,7 +47,8 @@ export async function signupProfileController (request: Request, response: Respo
             profileEmail,
             profileHash,
             profilePhotoId: null,
-            profilePhotoUrl
+            profilePhotoUrl,
+            profileBio: null,
         };
         await insertProfile (profile)
 // console.log(process.env.MAILGUN_DOMAIN)
