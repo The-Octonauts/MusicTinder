@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {Image} from "react-bootstrap";
-
+import {Link} from "react-router-dom"
 
 
 export const EditProfileFormContent = (props) => {
@@ -199,7 +199,7 @@ console.log(uniqueGenres)
                                         disabled={!dirty || isSubmitting}
                                     >Reset
                                     </button>
-                                    <button href = '/recommend' >Start Matching< /button>
+                                    <Link to="/recommend" className="btn btn-success">Start Matching</Link>
 
                                 </div>
 {/*

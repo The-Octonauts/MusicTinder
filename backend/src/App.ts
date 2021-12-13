@@ -15,6 +15,7 @@ import {savedRouter} from "./apis/saved/saved.route";
 import {swipeRouter} from "./apis/swipe/swipe.route";
 import {ProfileRoute} from "./apis/profile/profile.route";
 import {ImageUploadRouter} from "./apis/image-upload/image-upload.route";
+import helmet from 'helmet';
 
 
 // The following class creates the app and instantiates the server
@@ -48,6 +49,7 @@ export class App {
         };
         this.app.use(morgan('dev'))
         this.app.use(express.json())
+        this.app.use(helmet())
         this.app.use(session(sessionConfig));
         this.app.use(passport.initialize());
         this.app.use(passport.session());
